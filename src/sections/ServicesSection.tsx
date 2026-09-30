@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code, Layout, Cpu, Cloud } from 'lucide-react';
+import { Terminal, PenTool, BrainCircuit, Server } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +12,7 @@ const services = [
     desc: 'End-to-end development of scalable, high-performance web applications and digital platforms using modern tech stacks.',
     capabilities: ['React / Next.js', 'Node.js / Python', 'System Architecture'],
     color: '#89bc30',
-    icon: <Code size={40} />
+    icon: <Terminal size={40} />
   },
   {
     id: '02',
@@ -20,7 +20,7 @@ const services = [
     desc: 'Creating intuitive, engaging, and beautiful digital experiences that align with user needs and business goals.',
     capabilities: ['User Research', 'Design Systems', 'Interaction Design'],
     color: '#89bc30',
-    icon: <Layout size={40} />
+    icon: <PenTool size={40} />
   },
   {
     id: '03',
@@ -28,7 +28,7 @@ const services = [
     desc: 'Integrating artificial intelligence and intelligent automation to streamline operations and unlock new capabilities.',
     capabilities: ['LLM Integration', 'Custom AI Agents', 'Process Automation'],
     color: '#89bc30',
-    icon: <Cpu size={40} />
+    icon: <BrainCircuit size={40} />
   },
   {
     id: '04',
@@ -36,7 +36,7 @@ const services = [
     desc: 'Designing and managing robust, secure, and scalable cloud architectures on AWS, GCP, or Azure.',
     capabilities: ['DevOps', 'CI/CD Pipelines', 'Serverless'],
     color: '#89bc30',
-    icon: <Cloud size={40} />
+    icon: <Server size={40} />
   }
 ];
 

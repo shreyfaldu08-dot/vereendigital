@@ -102,12 +102,12 @@ const HeroSection = () => {
 
       {/* Hero Typography */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none" style={{ perspective: '1000px' }}>
-        <h1 ref={textRef} className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-wrap justify-center" style={{ transformStyle: 'preserve-3d' }}>
-          <div className="flex px-2 pointer-events-auto">
-            <EchoText text="DIGITAL" color="#F0EFEA" direction="up" tint="#89bc30" fontSize="12vw" mode="both" blur={0} echoes={8} />
+        <h1 ref={textRef} className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center" style={{ transformStyle: 'preserve-3d' }}>
+          <div className="flex pointer-events-auto">
+            <EchoText text="DIGITAL" color="#F0EFEA" direction="up" tint="#89bc30" fontSize="16vw" mode="both" blur={0} echoes={8} />
           </div>
-          <div className="flex px-2 pointer-events-auto">
-            <EchoText text="FRONTIER" color="#89bc30" direction="down" tint="#89bc30" fontSize="12vw" mode="both" blur={0} echoes={8} />
+          <div className="flex pointer-events-auto">
+            <EchoText text="FRONTIER" color="#89bc30" direction="down" tint="#89bc30" fontSize="16vw" mode="both" blur={0} echoes={8} />
           </div>
         </h1>
       </div>

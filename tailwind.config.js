@@ -28,9 +28,10 @@ export default {
         border: 'rgba(255,255,255,0.16)',
       },
       fontFamily: {
-        display: ['Libre Franklin', 'sans-serif'],
-        sans: ['Libre Franklin', 'sans-serif'],
-        serif: ['Libre Franklin', 'sans-serif'],
+        display: ['Franklin Gothic Demi', 'Franklin Gothic Medium', 'sans-serif'],
+        serif:   ['Franklin Gothic Demi', 'Franklin Gothic Medium', 'sans-serif'],
+        sans:    ['Poppins', 'sans-serif'],
+        mono:    ['Poppins', 'monospace'],
       },
       spacing: {
         'page': '5vw',

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -12,10 +12,12 @@
   --color-dark-text: #151515;
   --color-border: rgba(255, 255, 255, 0.16);
 
-  --font-display: "Libre Franklin", sans-serif;
-  --font-sans: "Libre Franklin", sans-serif;
-  --font-serif: "Libre Franklin", sans-serif;
-  --font-mono: "Libre Franklin", monospace;
+  /* Primary: Franklin Gothic Demi (system) with Libre Franklin as web fallback */
+  --font-display: "Franklin Gothic Demi", "Franklin Gothic Medium", "ITC Franklin Gothic", "Libre Franklin", sans-serif;
+  --font-serif: "Franklin Gothic Demi", "Franklin Gothic Medium", "ITC Franklin Gothic", "Libre Franklin", sans-serif;
+  /* Secondary: Poppins for body copy, UI, and mono contexts */
+  --font-sans: "Poppins", sans-serif;
+  --font-mono: "Poppins", monospace;
 
   --spacing-page: 5vw;
 }
