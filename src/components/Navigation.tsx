@@ -35,8 +35,10 @@ const Navigation = () => {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary-bg/90 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'} ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="px-page flex justify-between items-center max-w-7xl mx-auto">
-        <a href="#" className="font-display font-bold text-2xl tracking-tight z-50 relative">
-          FRONTIER<span className="text-accent-lime">.</span>
+        <a href="#" className="flex items-center z-50 relative">
+          <span className="font-display font-bold text-xl tracking-tight leading-none">
+            Vereen<span className="text-accent-lime">Digital</span>
+          </span>
         </a>
         
         {/* Desktop Nav */}

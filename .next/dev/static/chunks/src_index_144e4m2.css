@@ -733,6 +733,10 @@
     height: calc(var(--spacing) * 6);
   }
 
+  .h-9 {
+    height: calc(var(--spacing) * 9);
+  }
+
   .h-16 {
     height: calc(var(--spacing) * 16);
   }
@@ -883,6 +887,10 @@
 
   .w-\[300vw\] {
     width: 300vw;
+  }
+
+  .w-auto {
+    width: auto;
   }
 
   .w-full {
@@ -1445,6 +1453,11 @@
   .to-transparent {
     --tw-gradient-to: transparent;
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+
+  .object-contain {
+    -o-object-fit: contain;
+    object-fit: contain;
   }
 
   .object-cover {

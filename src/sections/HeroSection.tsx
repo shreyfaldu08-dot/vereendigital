@@ -77,13 +77,6 @@ const HeroSection = () => {
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-primary-bg">
       
-      {/* Background Supportive Typography (Watermark) */}
-      <div className="absolute inset-0 z-0 flex flex-col items-center justify-center pointer-events-none opacity-5">
-        <div className="font-display text-[24vw] font-bold leading-[0.75] tracking-tighter uppercase text-center text-light-bg whitespace-nowrap">
-          <div>DIGITAL</div>
-          <div>FRONTIER</div>
-        </div>
-      </div>
 
       {/* The Faded Blue Circle (Optimized for performance: No blur filter) */}
       <div 
