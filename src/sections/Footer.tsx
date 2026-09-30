@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Globe } from 'lucide-react';
+import { PremiumButton } from '../components/PremiumButton';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 
 const Footer = () => {
@@ -62,13 +63,14 @@ const Footer = () => {
                 <span className="text-accent-lime italic pr-4">together</span>
               </h2>
               
-              <a 
-                href="#contact" 
-                className="inline-flex items-center gap-6 px-10 py-5 bg-white text-[#090A0C] font-display font-bold uppercase tracking-widest text-sm md:text-base rounded-full shadow-[0_0_40px_rgba(226, 240, 202,0.1)] hover:shadow-[0_0_60px_rgba(137, 188, 48,0.3)] transition-all duration-500 hover:scale-105 pointer-events-auto"
+              <PremiumButton
+                color="#e2f0ca"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-10 py-5 pointer-events-auto"
               >
-                Start a Project
-                <ArrowRight size={20} />
-              </a>
+                <span className="font-display font-bold uppercase tracking-widest text-sm md:text-base">Start a Project</span>
+                <ArrowRight size={20} className="ml-4" />
+              </PremiumButton>
             </div>
 
             {/* Abstract Background Element */}
@@ -95,7 +97,7 @@ const Footer = () => {
               
               <div className="border-b border-accent-light/10 p-10 md:p-16 flex flex-col justify-center">
                 <h4 className="font-mono text-xs uppercase tracking-widest text-accent-light/40 mb-8 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                  <div className="w-1.5 h-1.5 bg-accent-lime rounded-full" />
                   Socials
                 </h4>
                 <ul className="flex flex-col gap-5 text-xl font-serif italic text-accent-light/80">
