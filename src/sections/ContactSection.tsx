@@ -29,9 +29,9 @@ const ContactSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="font-display text-5xl md:text-7xl font-bold text-white tracking-tight">Transmission Received.</h3>
+            <h3 className="font-display text-5xl md:text-7xl font-bold text-white tracking-tight">Message Received.</h3>
             <p className="text-secondary-text text-2xl md:text-3xl max-w-2xl mx-auto font-serif italic">
-              Our team has been notified. We will review your inquiry and initiate contact within 24 hours.
+              The Vereen Digital team has been notified. We will review your inquiry and reach out within 24 hours.
             </p>
             <button onClick={() => setIsSubmitted(false)} className="mt-12 px-10 py-4 border border-accent-light/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 font-mono uppercase tracking-widest text-sm">
               Send Another Request
@@ -68,9 +68,9 @@ const ContactSection = () => {
             
             <div className="mt-32 flex flex-col md:flex-row items-center justify-between gap-10">
               <div className="flex gap-8 font-mono text-sm text-secondary-text">
-                <a href="mailto:hello@frontier.agency" className="hover:text-accent-lime transition-colors">hello@frontier.agency</a>
+                <a href="mailto:hello@vereendgital.com" className="hover:text-accent-lime transition-colors">hello@vereendigital.com</a>
                 <span className="hidden md:block">/</span>
-                <span className="hidden md:block">San Francisco, CA</span>
+                <span className="hidden md:block">India</span>
               </div>
               
               <PremiumButton 

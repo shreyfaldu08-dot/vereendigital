@@ -35,8 +35,8 @@ const Footer = () => {
 
             <div className="relative z-10">
               <h2 className="text-5xl md:text-[6vw] leading-[0.9] font-display font-bold text-white mb-8 md:mb-12 uppercase tracking-tighter">
-                Let's work<br/>
-                <span className="text-accent-lime italic pr-4">together</span>
+                Let's build<br/>
+                <span className="text-accent-lime italic pr-4">something great</span>
               </h2>
               
               <PremiumButton

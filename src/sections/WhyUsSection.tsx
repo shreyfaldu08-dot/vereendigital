@@ -27,7 +27,7 @@ const WhyUsSection = () => {
       // 3. Left title breathing effect
       gsap.to('.left-title', {
         scale: 1.05,
-        color: '#d4ff00',
+        color: '#89bc30',
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top center',
@@ -58,10 +58,10 @@ const WhyUsSection = () => {
 
       // 5. Sidebar Progress Line
       gsap.fromTo('.scroll-progress-bar', 
-        { scaleY: 0, boxShadow: '0 0 0px #d4ff00' },
+        { scaleY: 0, boxShadow: '0 0 0px #89bc30' },
         { 
           scaleY: 1, 
-          boxShadow: '0 0 20px #d4ff00',
+          boxShadow: '0 0 20px #89bc30',
           ease: 'none',
           scrollTrigger: scrubTrigger
         }
@@ -71,7 +71,7 @@ const WhyUsSection = () => {
     return () => ctx.revert();
   }, []);
 
-  const manifestoText = "We don't just build websites. We engineer digital ecosystems that command attention, drive scalable growth, and redefine industry standards. We exist at the intersection of relentless innovation and flawless execution.".split(' ');
+  const manifestoText = "We don't build websites. We craft transformative digital experiences that command attention, accelerate growth, and establish market dominance. Vereen Digital exists at the intersection of bold creativity and precision engineering.".split(' ');
 
   return (
     <section ref={containerRef} id="about" className="relative w-full bg-[#0d0e12] py-40 border-t border-border">
@@ -79,9 +79,9 @@ const WhyUsSection = () => {
       {/* Background Kinetic Marquee */}
       <div className="absolute top-40 left-0 w-full overflow-hidden opacity-5 pointer-events-none select-none">
         <div className="marquee-inner flex whitespace-nowrap font-display font-bold text-[15vw] leading-none uppercase tracking-tighter text-white">
-          <span>THE FRONTIER AWAITS &nbsp;</span>
-          <span>THE FRONTIER AWAITS &nbsp;</span>
-          <span>THE FRONTIER AWAITS &nbsp;</span>
+          <span>VEREEN DIGITAL &nbsp;</span>
+          <span>VEREEN DIGITAL &nbsp;</span>
+          <span>VEREEN DIGITAL &nbsp;</span>
         </div>
       </div>
 
@@ -98,7 +98,7 @@ const WhyUsSection = () => {
             Built for<br/>the Bold.
           </h3>
           <p className="mt-8 text-secondary-text text-lg max-w-sm">
-            We partner with visionary brands who refuse to settle for ordinary. If you are looking for a safe, standard template, you are in the wrong place.
+            We partner with ambitious brands who refuse to settle for ordinary. If you want a safe, off-the-shelf solution, we are not the right team.
           </p>
         </div>
 

@@ -1074,7 +1074,7 @@ const ContactSection = ()=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                 className: "font-display text-5xl md:text-7xl font-bold text-white tracking-tight",
-                                children: "Transmission Received."
+                                children: "Message Received."
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/ContactSection.tsx",
                                 lineNumber: 32,
@@ -1082,7 +1082,7 @@ const ContactSection = ()=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-secondary-text text-2xl md:text-3xl max-w-2xl mx-auto font-serif italic",
-                                children: "Our team has been notified. We will review your inquiry and initiate contact within 24 hours."
+                                children: "The Vereen Digital team has been notified. We will review your inquiry and reach out within 24 hours."
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/ContactSection.tsx",
                                 lineNumber: 33,
@@ -1326,9 +1326,9 @@ const ContactSection = ()=>{
                                         className: "flex gap-8 font-mono text-sm text-secondary-text",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "mailto:hello@frontier.agency",
+                                                href: "mailto:hello@vereendgital.com",
                                                 className: "hover:text-accent-lime transition-colors",
-                                                children: "hello@frontier.agency"
+                                                children: "hello@vereendigital.com"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/sections/ContactSection.tsx",
                                                 lineNumber: 71,
@@ -1344,7 +1344,7 @@ const ContactSection = ()=>{
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "hidden md:block",
-                                                children: "San Francisco, CA"
+                                                children: "India"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/sections/ContactSection.tsx",
                                                 lineNumber: 73,
@@ -1658,15 +1658,15 @@ const Footer = ()=>{
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                             className: "text-5xl md:text-[6vw] leading-[0.9] font-display font-bold text-white mb-8 md:mb-12 uppercase tracking-tighter",
                                             children: [
-                                                "Let's work",
+                                                "Let's build",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                     fileName: "[project]/src/sections/Footer.tsx",
                                                     lineNumber: 38,
-                                                    columnNumber: 27
+                                                    columnNumber: 28
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "text-accent-lime italic pr-4",
-                                                    children: "together"
+                                                    children: "something great"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/Footer.tsx",
                                                     lineNumber: 39,
@@ -2272,7 +2272,7 @@ const HeroSection = ()=>{
                                 className: "absolute inset-y-0 left-0 flex items-center opacity-5",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "font-display text-[35vw] font-bold whitespace-nowrap leading-none tracking-tighter text-dark-text",
-                                    children: "IMPACT SCALE GROWTH"
+                                    children: "RESULTS. SCALE. GROWTH."
                                 }, void 0, false, {
                                     fileName: "[project]/src/sections/HeroSection.tsx",
                                     lineNumber: 124,
@@ -2323,7 +2323,7 @@ const HeroSection = ()=>{
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-2xl md:text-4xl font-serif max-w-2xl text-dark-text/80",
-                                        children: "Revenue generated for our partners through digital product innovation and engineering."
+                                        children: "In revenue generated for our partners through digital innovation."
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/HeroSection.tsx",
                                         lineNumber: 138,
@@ -2365,7 +2365,7 @@ const HeroSection = ()=>{
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-2xl md:text-4xl font-serif max-w-2xl text-dark-text/80",
-                                        children: "Projects Delivered with unmatched precision and creativity."
+                                        children: "Successful projects delivered across fintech, healthcare, and enterprise SaaS."
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/HeroSection.tsx",
                                         lineNumber: 149,
@@ -3105,22 +3105,22 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 ;
 const testimonials = [
     {
-        quote: "Frontier didn't just build our platform; they fundamentally improved our product strategy. Their engineering quality and attention to design detail are unmatched.",
+        quote: "Vereen Digital didn't just build our platform — they fundamentally elevated our entire product strategy. Their engineering quality and attention to design detail are genuinely unmatched in the industry.",
         name: "Sarah Jenkins",
         role: "CTO, Nexus Financial",
         color: "#89bc30"
     },
     {
-        quote: "The technical architecture they implemented scaled effortlessly when we hit viral growth. Finding a team that understands both complex backend systems and premium UI is rare.",
+        quote: "The technical architecture they implemented scaled effortlessly when we hit viral growth. Finding a team that masters both complex backend systems and premium UI is incredibly rare.",
         name: "Marcus Chen",
         role: "Founder, Aura Health",
         color: "#89bc30"
     },
     {
-        quote: "Working with Frontier feels like having an elite in-house product team. Their transparency, speed, and standard of excellence transformed how we operate.",
+        quote: "Working with Vereen Digital feels like having an elite in-house product team. Their transparency, speed, and standard of excellence have permanently transformed how we build and ship.",
         name: "Elena Rodriguez",
         role: "VP of Product, LogisTech",
-        color: "#F0EFEA"
+        color: "#89bc30"
     }
 ];
 const TestimonialsSection = ()=>{
@@ -3380,7 +3380,7 @@ const WhyUsSection = ()=>{
             // 3. Left title breathing effect
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].to('.left-title', {
                 scale: 1.05,
-                color: '#d4ff00',
+                color: '#89bc30',
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: 'top center',
@@ -3408,17 +3408,17 @@ const WhyUsSection = ()=>{
             // 5. Sidebar Progress Line
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].fromTo('.scroll-progress-bar', {
                 scaleY: 0,
-                boxShadow: '0 0 0px #d4ff00'
+                boxShadow: '0 0 0px #89bc30'
             }, {
                 scaleY: 1,
-                boxShadow: '0 0 20px #d4ff00',
+                boxShadow: '0 0 20px #89bc30',
                 ease: 'none',
                 scrollTrigger: scrubTrigger
             });
         }, containerRef);
         return ()=>ctx.revert();
     }, []);
-    const manifestoText = "We don't just build websites. We engineer digital ecosystems that command attention, drive scalable growth, and redefine industry standards. We exist at the intersection of relentless innovation and flawless execution.".split(' ');
+    const manifestoText = "We don't build websites. We craft transformative digital experiences that command attention, accelerate growth, and establish market dominance. Vereen Digital exists at the intersection of bold creativity and precision engineering.".split(' ');
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: containerRef,
         id: "about",
@@ -3430,21 +3430,21 @@ const WhyUsSection = ()=>{
                     className: "marquee-inner flex whitespace-nowrap font-display font-bold text-[15vw] leading-none uppercase tracking-tighter text-white",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            children: "THE FRONTIER AWAITS  "
+                            children: "VEREEN DIGITAL  "
                         }, void 0, false, {
                             fileName: "[project]/src/sections/WhyUsSection.tsx",
                             lineNumber: 82,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            children: "THE FRONTIER AWAITS  "
+                            children: "VEREEN DIGITAL  "
                         }, void 0, false, {
                             fileName: "[project]/src/sections/WhyUsSection.tsx",
                             lineNumber: 83,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            children: "THE FRONTIER AWAITS  "
+                            children: "VEREEN DIGITAL  "
                         }, void 0, false, {
                             fileName: "[project]/src/sections/WhyUsSection.tsx",
                             lineNumber: 84,
@@ -3507,7 +3507,7 @@ const WhyUsSection = ()=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "mt-8 text-secondary-text text-lg max-w-sm",
-                                children: "We partner with visionary brands who refuse to settle for ordinary. If you are looking for a safe, standard template, you are in the wrong place."
+                                children: "We partner with ambitious brands who refuse to settle for ordinary. If you want a safe, off-the-shelf solution, we are not the right team."
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/WhyUsSection.tsx",
                                 lineNumber: 100,

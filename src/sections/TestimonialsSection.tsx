@@ -3,22 +3,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: "Frontier didn't just build our platform; they fundamentally improved our product strategy. Their engineering quality and attention to design detail are unmatched.",
+    quote: "Vereen Digital didn't just build our platform — they fundamentally elevated our entire product strategy. Their engineering quality and attention to design detail are genuinely unmatched in the industry.",
     name: "Sarah Jenkins",
     role: "CTO, Nexus Financial",
     color: "#89bc30"
   },
   {
-    quote: "The technical architecture they implemented scaled effortlessly when we hit viral growth. Finding a team that understands both complex backend systems and premium UI is rare.",
+    quote: "The technical architecture they implemented scaled effortlessly when we hit viral growth. Finding a team that masters both complex backend systems and premium UI is incredibly rare.",
     name: "Marcus Chen",
     role: "Founder, Aura Health",
     color: "#89bc30"
   },
   {
-    quote: "Working with Frontier feels like having an elite in-house product team. Their transparency, speed, and standard of excellence transformed how we operate.",
+    quote: "Working with Vereen Digital feels like having an elite in-house product team. Their transparency, speed, and standard of excellence have permanently transformed how we build and ship.",
     name: "Elena Rodriguez",
     role: "VP of Product, LogisTech",
-    color: "#F0EFEA"
+    color: "#89bc30"
   }
 ];
 

@@ -122,7 +122,7 @@ const HeroSection = () => {
             className="absolute inset-y-0 left-0 flex items-center opacity-5"
           >
             <h2 className="font-display text-[35vw] font-bold whitespace-nowrap leading-none tracking-tighter text-dark-text">
-              IMPACT SCALE GROWTH
+              RESULTS. SCALE. GROWTH.
             </h2>
           </div>
         </div>
@@ -136,7 +136,7 @@ const HeroSection = () => {
             </h2>
             <div className="w-1/2 h-px bg-dark-text/20 my-8"></div>
             <p className="text-2xl md:text-4xl font-serif max-w-2xl text-dark-text/80">
-              Revenue generated for our partners through digital product innovation and engineering.
+              In revenue generated for our partners through digital innovation.
             </p>
           </div>
 
@@ -147,7 +147,7 @@ const HeroSection = () => {
             </h2>
             <div className="w-1/2 h-px bg-dark-text/20 my-8"></div>
             <p className="text-2xl md:text-4xl font-serif max-w-2xl text-dark-text/80">
-              Projects Delivered with unmatched precision and creativity.
+              Successful projects delivered across fintech, healthcare, and enterprise SaaS.
             </p>
           </div>
 
