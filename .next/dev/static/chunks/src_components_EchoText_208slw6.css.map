@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/BAPS/Desktop/vereen%20digital/src/components/EchoText.css"],"sourcesContent":[".echo-text {\n  position: relative;\n  display: inline-block;\n  white-space: nowrap;\n  line-height: 0.9;\n  letter-spacing: -0.04em;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  contain: layout style;\n  font-kerning: normal;\n  text-rendering: geometricPrecision;\n}\n\n.echo-text__echo {\n  position: absolute;\n  inset: 0;\n  display: block;\n  pointer-events: none;\n  transform: translate3d(0, 0, 0);\n  transform-origin: 50% 50%;\n  will-change: transform, opacity;\n  backface-visibility: hidden;\n}\n\n.echo-text__echo--front {\n  position: relative;\n  z-index: 2;\n  opacity: 1;\n  filter: none;\n  text-shadow: 0 0.035em 0 rgba(255, 255, 255, 0.04);\n  will-change: transform;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .echo-text__echo:not(.echo-text__echo--front) {\n    display: none;\n  }\n\n  .echo-text__echo--front {\n    transform: none !important;\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;AAcA;;;;;;;;;;;AAWA;;;;;;;;;AASA;EACE;;;;EAIA"}}]
+}

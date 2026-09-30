@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-bg: #090A0C;
+  --color-primary-text: #F3F1EB;
+  --color-secondary-bg: #15171A;
+  --color-secondary-text: #9A9BA2;
+  --color-accent-lime: #89bc30;
+  --color-accent-light: #e2f0ca;
+  --color-light-bg: #F0EFEA;
+  --color-dark-text: #151515;
+  --color-border: rgba(255, 255, 255, 0.16);
+
+  --font-display: "Libre Franklin", sans-serif;
+  --font-sans: "Libre Franklin", sans-serif;
+  --font-serif: "Libre Franklin", sans-serif;
+  --font-mono: "Libre Franklin", monospace;
+
+  --spacing-page: 5vw;
+}
+
+@layer base {
+  body {
+    @apply bg-primary-bg text-primary-text font-sans antialiased selection:bg-accent-lime selection:text-dark-text overflow-x-hidden;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090A0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #15171A;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #89bc30;
+}
