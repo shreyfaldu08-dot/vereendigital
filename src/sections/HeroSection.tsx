@@ -6,47 +6,129 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
   const mouseTrackerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const circleBgRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const bgTextRef = useRef<HTMLDivElement>(null);
 
+  // Creative minimalist particle field
   useEffect(() => {
-    // Smooth magnetic 3D mouse tracking on hero text only
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animId: number;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', handleResize);
+
+    const particleCount = 40;
+    const particles = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      size: Math.random() * 2 + 1,
+      alpha: Math.random() * 0.35 + 0.15,
+      color: Math.random() > 0.45 ? '#89bc30' : '#F0EFEA',
+    }));
+
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+    let targetX = width / 2;
+    let targetY = height / 2;
+
+    const onPointerMove = (e: MouseEvent) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    };
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      mouseX += (targetX - mouseX) * 0.05;
+      mouseY += (targetY - mouseY) * 0.05;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 160 && dist > 0) {
+          const force = (160 - dist) / 160;
+          p.x += (dx / dist) * force * 1.4;
+          p.y += (dy / dist) * force * 1.4;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+      }
+
+      animId = requestAnimationFrame(render);
+    };
+
+    animId = requestAnimationFrame(render);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', onPointerMove);
+    };
+  }, []);
+
+  // Smooth 3D tilt tracking
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (window.scrollY > 80) return;
+      if (window.scrollY > 80 || !mouseTrackerRef.current) return;
       const { innerWidth, innerHeight } = window;
       const nx = (e.clientX / innerWidth - 0.5) * 2;
       const ny = (e.clientY / innerHeight - 0.5) * 2;
 
-      if (mouseTrackerRef.current) {
-        gsap.to(mouseTrackerRef.current, {
-          rotateY: nx * 10,
-          rotateX: -ny * 10,
-          x: nx * 24,
-          y: ny * 14,
-          duration: 0.7,
-          ease: 'power2.out',
-          overwrite: 'auto'
-        });
-      }
+      gsap.to(mouseTrackerRef.current, {
+        rotateY: nx * 9,
+        rotateX: -ny * 9,
+        x: nx * 22,
+        y: ny * 14,
+        duration: 0.7,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
     };
 
     const handleScroll = () => {
-      if (window.scrollY > 60) {
-        if (mouseTrackerRef.current) {
-          gsap.to(mouseTrackerRef.current, {
-            rotateY: 0,
-            rotateX: 0,
-            x: 0,
-            y: 0,
-            duration: 0.3,
-            ease: 'power1.out',
-            overwrite: 'auto'
-          });
-        }
+      if (window.scrollY > 60 && mouseTrackerRef.current) {
+        gsap.to(mouseTrackerRef.current, {
+          rotateY: 0,
+          rotateX: 0,
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        });
       }
     };
 
@@ -146,11 +228,38 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-primary-bg">
+    <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-primary-bg select-none">
       
+      {/* Interactive Minimalist Particle Canvas */}
+      <canvas 
+        ref={canvasRef} 
+        className="absolute inset-0 pointer-events-none z-0 opacity-80"
+      />
 
-      {/* The Faded Circle (Always perfectly locked dead-center) */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+      {/* The Faded Circle & Minimalist 3D Geometric Orbitals (Dead-Center) */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none" style={{ perspective: '1000px' }}>
+        
+        {/* Outer Minimalist Orbital Ring */}
+        <div 
+          className="absolute w-[40vw] h-[40vw] rounded-full border border-accent-lime/10 pointer-events-none animate-[spin_40s_linear_infinite]"
+          style={{ borderStyle: 'dashed' }}
+        />
+
+        {/* Inner Minimalist Orbital Ring */}
+        <div 
+          className="absolute w-[30vw] h-[30vw] rounded-full border border-white/5 pointer-events-none animate-[spin_25s_linear_infinite_reverse]"
+        />
+
+        {/* Soft breathing aura */}
+        <div 
+          className="absolute w-[32vw] h-[32vw] rounded-full opacity-20 animate-pulse pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(137, 188, 48, 0.2) 0%, transparent 70%)',
+            animationDuration: '4s'
+          }}
+        />
+
+        {/* The Central Faded Circle (Expands on Scroll) */}
         <div 
           ref={circleBgRef} 
           style={{ 
@@ -165,16 +274,22 @@ const HeroSection = () => {
 
       {/* Hero Typography with Smooth 3D Mouse Tracking */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none" style={{ perspective: '1200px' }}>
-        <h1 ref={textRef} className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center select-none" style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}>
-          <div ref={mouseTrackerRef} className="flex flex-col items-center pointer-events-auto cursor-default" style={{ transformStyle: 'preserve-3d' }}>
-            <span className="text-[13vw] text-light-bg leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
+        <div ref={textRef} className="flex flex-col items-center text-center" style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}>
+          
+          <h1 ref={mouseTrackerRef} className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center pointer-events-auto cursor-default" style={{ transformStyle: 'preserve-3d' }}>
+            <span className="text-[13vw] sm:text-[14vw] text-light-bg leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
               DIGITAL
             </span>
-            <span className="text-[13vw] text-accent-lime leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
+            <span className="text-[13vw] sm:text-[14vw] text-accent-lime leading-[0.85] tracking-tighter block font-black drop-shadow-[0_0_35px_rgba(137,188,48,0.22)]">
               FRONTIER
             </span>
-          </div>
-        </h1>
+          </h1>
+
+        </div>
+      </div>
+
+      <div className="absolute bottom-10 left-page font-mono text-xs uppercase tracking-widest text-secondary-text z-10 pointer-events-none">
+        Scroll to Explore
       </div>
 
       {/* Horizontal Scroll Metrics */}
@@ -241,9 +356,6 @@ const HeroSection = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-page font-mono text-xs uppercase tracking-widest text-secondary-text z-10 pointer-events-none">
-        Scroll to Explore
-      </div>
     </section>
   );
 };
