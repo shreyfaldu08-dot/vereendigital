@@ -1,62 +1,133 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import EchoText from '../components/EchoText';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
+  const mouseTrackerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
   const circleBgRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const bgTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    // Smooth magnetic 3D mouse tracking on hero text only
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.scrollY > 80) return;
+      const { innerWidth, innerHeight } = window;
+      const nx = (e.clientX / innerWidth - 0.5) * 2;
+      const ny = (e.clientY / innerHeight - 0.5) * 2;
 
+      if (mouseTrackerRef.current) {
+        gsap.to(mouseTrackerRef.current, {
+          rotateY: nx * 10,
+          rotateX: -ny * 10,
+          x: nx * 24,
+          y: ny * 14,
+          duration: 0.7,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+      }
+    };
+
+    const handleScroll = () => {
+      if (window.scrollY > 60) {
+        if (mouseTrackerRef.current) {
+          gsap.to(mouseTrackerRef.current, {
+            rotateY: 0,
+            rotateX: 0,
+            x: 0,
+            y: 0,
+            duration: 0.3,
+            ease: 'power1.out',
+            overwrite: 'auto'
+          });
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
       // Master Timeline for Hero -> Horizontal Scroll
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=400%', // Extended duration for both animations
+          end: '+=400%',
           scrub: 1,
           pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
         }
       });
 
-      // 1. Hero Out & Blue Circle Expand
-      tl.to(textRef.current, {
-        scale: 6,
-        rotationZ: -10,
-        y: -100,
-        opacity: 0,
-        ease: 'power2.in',
-        duration: 1
-      }, 0)
-      .to(circleBgRef.current, {
-        scale: 30, // Large enough to cover the screen
-        ease: 'power2.inOut',
-        duration: 1
-      }, 0)
+      // 1. Hero Out & Circle Expand
+      tl.fromTo(textRef.current,
+        {
+          scale: 1,
+          rotationZ: 0,
+          y: 0,
+          autoAlpha: 1,
+        },
+        {
+          scale: 4,
+          rotationZ: -6,
+          y: -80,
+          autoAlpha: 0,
+          ease: 'power1.in',
+          duration: 1,
+          immediateRender: false,
+        },
+        0
+      )
+      .fromTo(circleBgRef.current,
+        {
+          scale: 1,
+        },
+        {
+          scale: 30,
+          ease: 'power2.inOut',
+          duration: 1,
+          immediateRender: false,
+        },
+        0
+      )
       
-      // 2. Fade in background layer for metrics
-      .to('.metrics-bg-layer', {
-        autoAlpha: 1,
-        duration: 0.5
-      }, 1)
+      // 2. Metrics Wrapper reveal (fades in as circle expands)
+      .fromTo('.metrics-wrapper',
+        {
+          autoAlpha: 0,
+        },
+        {
+          autoAlpha: 1,
+          duration: 0.4,
+          ease: 'power1.in',
+        },
+        0.8
+      )
       
       // 3. Horizontal Scroll - Slides in from the right
       .fromTo(scrollRef.current, 
-        { x: '100vw' }, // Starts fully off-screen to the right
+        { x: '100vw' },
         { 
-          x: '-200vw', // Slides through all 3 panels (100vw each)
+          x: '-200vw',
           ease: "none",
-          duration: 3 // Takes the remainder of the timeline
+          duration: 3,
         }, 
-        1 // Starts exactly when the circle finishes expanding
+        1
       )
 
       // 4. Parallax Giant Background Text
@@ -65,7 +136,7 @@ const HeroSection = () => {
         {
           x: '-80vw',
           ease: "none",
-          duration: 3
+          duration: 3,
         },
         1
       );
@@ -78,38 +149,39 @@ const HeroSection = () => {
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-primary-bg">
       
 
-      {/* The Faded Blue Circle (Optimized for performance: No blur filter) */}
-      <div 
-        ref={circleBgRef} 
-        className="absolute z-0 pointer-events-none"
-        style={{ 
-          width: '20vw', 
-          height: '20vw', 
-          background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)', 
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%) scale(1)',
-          willChange: 'transform'
-        }} 
-      />
+      {/* The Faded Circle (Always perfectly locked dead-center) */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+        <div 
+          ref={circleBgRef} 
+          style={{ 
+            width: '20vw', 
+            height: '20vw', 
+            background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)', 
+            borderRadius: '9999px',
+            willChange: 'transform'
+          }} 
+        />
+      </div>
 
-      {/* Hero Typography */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none" style={{ perspective: '1000px' }}>
-        <h1 ref={textRef} className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center" style={{ transformStyle: 'preserve-3d' }}>
-          <div className="flex pointer-events-auto">
-            <EchoText text="DIGITAL" color="#F0EFEA" direction="up" tint="#89bc30" fontSize="16vw" mode="both" blur={0} echoes={8} />
-          </div>
-          <div className="flex pointer-events-auto">
-            <EchoText text="FRONTIER" color="#89bc30" direction="down" tint="#89bc30" fontSize="16vw" mode="both" blur={0} echoes={8} />
+      {/* Hero Typography with Smooth 3D Mouse Tracking */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none" style={{ perspective: '1200px' }}>
+        <h1 ref={textRef} className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center select-none" style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}>
+          <div ref={mouseTrackerRef} className="flex flex-col items-center pointer-events-auto cursor-default" style={{ transformStyle: 'preserve-3d' }}>
+            <span className="text-[13vw] text-light-bg leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
+              DIGITAL
+            </span>
+            <span className="text-[13vw] text-accent-lime leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
+              FRONTIER
+            </span>
           </div>
         </h1>
       </div>
 
       {/* Horizontal Scroll Metrics */}
-      <div className="absolute inset-0 z-20 metrics-wrapper pointer-events-none overflow-hidden shadow-[inset_0_0_200px_rgba(0,0,0,0.15)]">
+      <div className="metrics-wrapper absolute inset-0 z-20 pointer-events-none overflow-hidden shadow-[inset_0_0_200px_rgba(0,0,0,0.15)] invisible opacity-0">
         
-        {/* Background elements - invisible during hero intro, fades in during metrics */}
-        <div className="metrics-bg-layer absolute inset-0 z-0 invisible opacity-0 pointer-events-none">
+        {/* Background elements */}
+        <div className="metrics-bg-layer absolute inset-0 z-0 pointer-events-none">
           {/* Subtle Dot Pattern Overlay for Texture */}
           <div 
             className="absolute inset-0 opacity-10" 
@@ -127,7 +199,11 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div ref={scrollRef} className="relative z-10 flex h-full w-[300vw] text-dark-text pointer-events-auto">
+        <div 
+          ref={scrollRef} 
+          className="relative z-10 flex h-full w-[300vw] text-dark-text pointer-events-auto"
+          style={{ transform: 'translateX(100vw)', willChange: 'transform' }}
+        >
           
           {/* Panel 1 */}
           <div className="w-screen h-full flex flex-col justify-center px-page shrink-0">

@@ -2,6 +2,8 @@
 
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navigation from '../components/Navigation';
 import HeroSection from '../sections/HeroSection';
 import CaseStudiesSection from '../sections/CaseStudiesSection';
@@ -14,6 +16,8 @@ import ContactSection from '../sections/ContactSection';
 import Footer from '../sections/Footer';
 import CustomCursor from '../components/CustomCursor';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -22,16 +26,20 @@ export default function Home() {
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
     });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const updateLenis = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(updateLenis);
+    gsap.ticker.lagSmoothing(0);
+
     return () => {
+      gsap.ticker.remove(updateLenis);
       lenis.destroy();
     };
   }, []);

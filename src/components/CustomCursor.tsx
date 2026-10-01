@@ -20,18 +20,18 @@ const CustomCursor = () => {
 
     window.addEventListener('mousemove', onMouseMove);
 
+    let animId: number;
+
     const render = () => {
+      if (!cursorRef.current) return;
       // Smooth following
       cursorX += (mouseX - cursorX) * 0.2;
       cursorY += (mouseY - cursorY) * 0.2;
       
-      gsap.set(cursor, {
-        x: cursorX - 10,
-        y: cursorY - 10
-      });
-      requestAnimationFrame(render);
+      cursorRef.current.style.transform = `translate3d(${cursorX - 10}px, ${cursorY - 10}px, 0)`;
+      animId = requestAnimationFrame(render);
     };
-    render();
+    animId = requestAnimationFrame(render);
 
     // Hover effect for links and buttons
     const addHover = () => gsap.to(cursor, { scale: 3, backgroundColor: 'transparent', border: '1px solid #89bc30', duration: 0.3 });
@@ -44,6 +44,7 @@ const CustomCursor = () => {
     });
 
     return () => {
+      cancelAnimationFrame(animId);
       window.removeEventListener('mousemove', onMouseMove);
       interactables.forEach((el) => {
         el.removeEventListener('mouseenter', addHover);

@@ -101,6 +101,18 @@ const EchoText = ({
       const state = stateRef.current;
       if (!state) return;
 
+      // Disable offset if scrolled away from hero
+      if (window.scrollY > 80) {
+        if (state.targetX !== 0 || state.targetY !== 0) {
+          state.targetX = 0;
+          state.targetY = 0;
+          if (!frameRef.current) {
+            frameRef.current = requestAnimationFrame(renderFrame);
+          }
+        }
+        return;
+      }
+
       const rect = root.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
 
@@ -133,12 +145,26 @@ const EchoText = ({
       }
     };
 
+    const handleScroll = () => {
+      const state = stateRef.current;
+      if (!state) return;
+      if (window.scrollY > 60) {
+        state.targetX = 0;
+        state.targetY = 0;
+        if (!frameRef.current) {
+          frameRef.current = requestAnimationFrame(renderFrame);
+        }
+      }
+    };
+
     if (canHover) {
       window.addEventListener('pointermove', handlePointerMove as EventListener, { passive: true });
       document.addEventListener('pointerleave', handlePointerLeave);
+      window.addEventListener('scroll', handleScroll, { passive: true });
       cleanupPointer = () => {
         window.removeEventListener('pointermove', handlePointerMove as EventListener);
         document.removeEventListener('pointerleave', handlePointerLeave);
+        window.removeEventListener('scroll', handleScroll);
       };
     }
 
