@@ -51,62 +51,90 @@ const solutionsData = [
   {
     num: "01",
     category: "RETRIEVAL",
+    specId: "SPEC: GEO-256T",
     title: "Generative Engine Optimization",
-    subtitle: "Engineering Brand Supremacy Inside LLM Answers",
-    desc: "Traditional 10-blue-link SEO is obsolete. We structure semantic vector embeddings, Wikidata entities, and JSON-LD schemas so AI models cite your brand as the primary authority.",
+    subtitle: "Brand Supremacy Inside LLM Answers",
+    desc: "We engineer semantic vector embeddings and structured schemas so AI models cite your brand as the canonical authority.",
     slides: [
       "Generative Engine SEO (GEO)",
       "Perplexity Sonar Protocol",
       "Wikidata Entity Reconciliation",
       "Semantic Vector Chunking"
     ],
-    deliverables: ["Answer-First 256t Chunking", "Vector Cosine Optimization", "Perplexity Canonical Citations", "Multi-Turn Prompt Modeling"],
-    tech: ["Schema.org", "Wikidata SPARQL", "Vector Embeddings", "RAG Pipelines"]
+    points: [
+      "256-Token Semantic Chunking",
+      "Vector Distance Calibration",
+      "Perplexity Canonical Citations",
+      "Multi-Turn Prompt Ingestion"
+    ],
+    tech: ["Schema.org", "Wikidata SPARQL", "Vector RAG"],
+    accentColor: "#89bc30"
   },
   {
     num: "02",
     category: "TAXONOMY",
-    title: "Knowledge Graph Disambiguation",
-    subtitle: "Eradicating Model Hallucinations Through Graph Truth",
-    desc: "LLMs hallucinate when entity relationships are ambiguous. We engineer deterministic JSON-LD @graph frameworks that anchor your enterprise into global machine ontologies.",
+    specId: "SPEC: KGD-QNODE",
+    title: "Knowledge Graph Ontologies",
+    subtitle: "Eradicating Model Hallucinations",
+    desc: "Deterministic JSON-LD @graph frameworks anchoring your enterprise into global machine ontologies with zero semantic drift.",
     slides: [
       "Zero-Drift Graph Ontology",
       "Google Knowledge Panel Sync",
       "Bing Entity Index Reconciliation",
       "Cryptographic Entity Claims"
     ],
-    deliverables: ["Wikidata Q-Node Creation", "Cross-Registry Binding", "Hallucination Defense", "Copilot Indexing"],
-    tech: ["Wikidata SPARQL", "Google Knowledge API", "Schema.org @graph", "Ontology Reconciliation"]
+    points: [
+      "Wikidata Q-Node Binding",
+      "Google Knowledge Panel Sync",
+      "Cryptographic Entity Claims",
+      "Copilot Index Verification"
+    ],
+    tech: ["Wikidata SPARQL", "Google KG API", "JSON-LD @graph"],
+    accentColor: "#89bc30"
   },
   {
     num: "03",
     category: "PERFORMANCE",
-    title: "Kinetic & WebGL Spatial Ecosystems",
-    subtitle: "Avant-Garde Web Architectures That Command Attention",
-    desc: "We don't design passive templates. We construct living, kinetic digital universes built on WebGL shaders, fluid Lenis physics, and micro-animations that convert at 120 FPS.",
+    specId: "SPEC: WGL-120FPS",
+    title: "Kinetic & WebGL Spatial Engines",
+    subtitle: "120 FPS Living Spatial Interfaces",
+    desc: "Living digital universes built on hardware-accelerated WebGL shaders, fluid Lenis momentum, and sub-50ms edge rendering.",
     slides: [
       "120 FPS WebGL Shaders",
       "Lenis Momentum Physics",
       "Headless Next.js 16 Edge",
       "Spatial Typography Fields"
     ],
-    deliverables: ["Custom WebGL GLSL Shaders", "Fluid Momentum Physics", "Edge-Rendered SSR (Sub-50ms)", "Ambient Illumination"],
-    tech: ["Three.js / WebGL", "Lenis Smooth Scroll", "TailwindCSS v4", "Next.js 16 Edge"]
+    points: [
+      "Custom WebGL GLSL Shaders",
+      "120 FPS Momentum Physics",
+      "Headless Next.js Edge SSR",
+      "Dynamic Ambient Glow Lighting"
+    ],
+    tech: ["Three.js WebGL", "Lenis Physics", "Next.js Edge"],
+    accentColor: "#89bc30"
   },
   {
     num: "04",
     category: "ATTRIBUTION",
+    specId: "SPEC: ARR-ATTRIB",
     title: "Conversational Revenue Attribution",
-    subtitle: "Direct Qualified Revenue Pipeline from Generative Search",
-    desc: "Connecting conversational AI search citations directly to closed-won enterprise pipeline. Measure which Perplexity answers and SearchGPT citations generate ARR.",
+    subtitle: "Closed-Loop Generative Search ARR",
+    desc: "Direct telemetry connecting conversational AI search citations directly to closed-won enterprise pipeline and verified ARR.",
     slides: [
       "Multi-Touch LLM Attribution",
       "Conversational Lead Telemetry",
       "Direct Closed-Won ARR Sync",
       "Executive Pipeline Dashboards"
     ],
-    deliverables: ["AI Citation Referral Tracking", "Competitive Share-of-Voice", "CRM Bi-Directional Sync", "Boardroom ARR Dashboards"],
-    tech: ["Attribution APIs", "Salesforce Sync", "HubSpot Telemetry", "ClickHouse Engine"]
+    points: [
+      "AI Citation Referral Tracking",
+      "Closed-Won ARR Pipeline Sync",
+      "Bi-Directional CRM Telemetry",
+      "Boardroom Attribution Dashboards"
+    ],
+    tech: ["Attribution APIs", "Salesforce Sync", "ClickHouse"],
+    accentColor: "#89bc30"
   }
 ];
 
@@ -867,16 +895,18 @@ export default function ServicesPage() {
                   key={service.num}
                   onMouseMove={handleCardTilt}
                   onMouseLeave={resetCardTilt}
-                  className={`wolfx-solution-card relative w-[88vw] sm:w-[680px] lg:w-[840px] min-h-[580px] h-auto lg:h-[620px] rounded-[32px] p-6 sm:p-8 lg:p-10 flex flex-col justify-between shrink-0 overflow-hidden border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${isSelected
-                    ? 'bg-gradient-to-b from-[#131622] via-[#0d0f17] to-[#08090d] border-accent-lime/60 shadow-[0_0_60px_rgba(137,188,48,0.22)]'
-                    : 'bg-[#0c0e14]/90 border-white/10 hover:border-white/20'
-                    }`}
+                  className="wolfx-solution-card relative w-[88vw] sm:w-[680px] lg:w-[760px] xl:w-[780px] h-[520px] sm:h-[530px] rounded-[44px] p-6 sm:p-8 lg:p-9 flex flex-col justify-between shrink-0 overflow-hidden border border-accent-lime/40 bg-gradient-to-b from-[#131622] via-[#0d0f17] to-[#08090d] shadow-[0_0_45px_rgba(137,188,48,0.18)] hover:border-accent-lime hover:shadow-[0_0_65px_rgba(137,188,48,0.28)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none"
                 >
                   {/* Dynamic Interactive Spotlight */}
-                  <div className="card-spotlight absolute inset-0 pointer-events-none rounded-[32px] opacity-0 transition-opacity duration-300 z-0" />
+                  <div className="card-spotlight absolute inset-0 pointer-events-none rounded-[44px] opacity-0 transition-opacity duration-300 z-0" />
 
-                  {/* Top: Coordinates + WOLFx Animated Ticker Reel */}
-                  <div className="shrink-0 relative z-10 pb-3.5 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
+                  {/* Ambient subtle color aura matching brand green on all cards */}
+                  <div 
+                    className="absolute -top-24 -right-24 w-80 h-80 rounded-full blur-[110px] pointer-events-none opacity-20 bg-accent-lime"
+                  />
+
+                  {/* Top Bar: Coordinates + WOLFx Animated Ticker Reel */}
+                  <div className="shrink-0 relative z-10 pb-3 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <span className="font-mono text-2xl sm:text-3xl font-black text-accent-lime">
                         {service.num}
@@ -887,49 +917,61 @@ export default function ServicesPage() {
                       <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse" />
                     </div>
 
-                    {/* WOLFx Vertical Reel */}
-                    <div className="h-8 overflow-hidden relative max-w-xs px-3 py-1 rounded-full bg-white/[0.03] border border-white/10">
-                      <div
-                        className="transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                        style={{ transform: `translateY(-${capabilitySlide * 32}px)` }}
-                      >
-                        {service.slides.map((slide, sIdx) => (
-                          <div
-                            key={sIdx}
-                            className="h-8 flex items-center font-mono text-xs sm:text-sm text-accent-lime font-bold truncate"
-                          >
-                            <span className="mr-2">›</span>
-                            {slide}
-                          </div>
-                        ))}
+                    <div className="flex items-center gap-3">
+                      <span className="hidden sm:inline-block font-mono text-[11px] text-white/50 bg-white/[0.04] border border-white/10 px-3 py-1 rounded-full">
+                        {service.specId}
+                      </span>
+
+                      {/* WOLFx Vertical Reel */}
+                      <div className="h-8 overflow-hidden relative max-w-xs px-3 py-1 rounded-full bg-white/[0.03] border border-white/10">
+                        <div
+                          className="transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                          style={{ transform: `translateY(-${capabilitySlide * 32}px)` }}
+                        >
+                          {service.slides.map((slide, sIdx) => (
+                            <div
+                              key={sIdx}
+                              className="h-8 flex items-center font-mono text-xs text-accent-lime font-bold truncate"
+                            >
+                              <span className="mr-2">›</span>
+                              {slide}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Middle Stage: Full Editorial Typography & Architecture Specs */}
+                  {/* Middle Stage: Main Heading + Subtitle + Narrative + Points with Tick Mark */}
                   <div className="flex-1 relative z-10 my-auto py-3 sm:py-4 flex flex-col justify-center">
-                    <h3 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold uppercase text-white leading-tight tracking-tight mb-2">
+                    
+                    {/* Main Heading */}
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-white leading-tight tracking-tight mb-1.5">
                       {service.title}
                     </h3>
 
-                    <div className="font-serif italic text-accent-light text-base sm:text-xl lg:text-2xl mb-2 sm:mb-3">
+                    {/* Subtitle */}
+                    <div className="font-serif italic text-accent-light text-sm sm:text-base lg:text-lg mb-2 leading-snug">
                       {service.subtitle}
                     </div>
 
-                    <p className="font-sans text-xs sm:text-sm lg:text-base text-secondary-text leading-relaxed max-w-3xl mb-4 sm:mb-5">
+                    {/* Narrative Description */}
+                    <p className="font-sans text-xs sm:text-sm text-secondary-text leading-relaxed max-w-2xl mb-4 sm:mb-5">
                       {service.desc}
                     </p>
 
-                    {/* Architecture Deliverables Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
-                      {service.deliverables.map((deliv, dIdx) => (
+                    {/* Below Main Heading: Points with Tick Mark (clean, no cards around points) */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 sm:gap-y-3 pt-1">
+                      {service.points.map((pt, pIdx) => (
                         <div
-                          key={dIdx}
-                          className="px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-accent-lime/40 transition-colors flex items-center gap-2.5"
+                          key={pIdx}
+                          className="flex items-center gap-3 py-0.5 group cursor-default"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent-lime shrink-0 shadow-[0_0_8px_#89bc30]" />
-                          <span className="font-mono text-xs text-white/90 font-medium leading-snug">
-                            {deliv}
+                          <div className="w-5 h-5 rounded-full bg-accent-lime/15 border border-accent-lime/40 flex items-center justify-center shrink-0 group-hover:bg-accent-lime group-hover:border-accent-lime transition-all shadow-[0_0_10px_rgba(137,188,48,0.2)]">
+                            <Check size={12} className="text-accent-lime group-hover:text-black transition-colors stroke-[2.5]" />
+                          </div>
+                          <span className="font-mono text-xs sm:text-sm text-white/90 font-medium group-hover:text-accent-lime transition-colors">
+                            {pt}
                           </span>
                         </div>
                       ))}
@@ -937,10 +979,17 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Bottom Section: Action Button & Stack */}
-                  <div className="shrink-0 relative z-10 pt-3 sm:pt-4 pb-1 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-                    <div className="font-mono text-xs text-white/40 flex items-center gap-2">
+                  <div className="shrink-0 relative z-10 pt-3 pb-0.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-white/40">
                       <span>STACK:</span>
-                      <span className="text-accent-light">{service.tech.join(' • ')}</span>
+                      {service.tech.map((techItem, tIdx) => (
+                        <span 
+                          key={tIdx} 
+                          className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-accent-light font-mono text-xs hover:border-accent-lime/40 transition-colors"
+                        >
+                          {techItem}
+                        </span>
+                      ))}
                     </div>
 
                     <PremiumButton
