@@ -33,9 +33,11 @@ const ContactSection = () => {
             <p className="text-secondary-text text-2xl md:text-3xl max-w-2xl mx-auto font-serif italic">
               The Vereen Digital team has been notified. We will review your inquiry and reach out within 24 hours.
             </p>
-            <button onClick={() => setIsSubmitted(false)} className="mt-12 px-10 py-4 border border-accent-light/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 font-mono uppercase tracking-widest text-sm">
-              Send Another Request
-            </button>
+            <PremiumButton 
+              onClick={() => setIsSubmitted(false)} 
+              className="mt-12 px-10 py-4"
+              text="SEND ANOTHER REQUEST"
+            />
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="w-full">

@@ -653,24 +653,29 @@ export default function ServicesPage() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <button
+            <PremiumButton
               onClick={() => {
                 workingModelsRef.current?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-4 rounded-full bg-accent-lime text-black font-bold font-mono text-xs uppercase tracking-widest hover:bg-white transition-all duration-300 flex items-center gap-3 group cursor-pointer shadow-[0_0_30px_rgba(137,188,48,0.35)]"
+              className="px-8 py-4"
             >
-              <span>EXPLORE WORKING MODELS</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+              <span className="font-mono text-xs uppercase tracking-widest flex items-center gap-3">
+                EXPLORE WORKING MODELS
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </PremiumButton>
 
-            <button
+            <PremiumButton
+              variant="glass"
               onClick={() => {
                 deckRef.current?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-4 rounded-full bg-white/[0.04] border border-white/15 text-white font-mono text-xs uppercase tracking-widest hover:bg-white/10 hover:border-accent-lime transition-all duration-300 flex items-center gap-2 cursor-pointer"
+              className="px-8 py-4"
             >
-              <span>VIEW CAPABILITIES</span>
-            </button>
+              <span className="font-mono text-xs uppercase tracking-widest">
+                VIEW CAPABILITIES
+              </span>
+            </PremiumButton>
           </div>
         </div>
 
@@ -938,15 +943,17 @@ export default function ServicesPage() {
                       <span className="text-accent-light">{service.tech.join(' • ')}</span>
                     </div>
 
-                    <button
+                    <PremiumButton
                       onClick={() => {
                         workingModelsRef.current?.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="px-6 py-3 rounded-full bg-accent-lime text-black font-bold font-mono text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300 flex items-center gap-2 group cursor-pointer shadow-[0_0_20px_rgba(137,188,48,0.3)] shrink-0"
+                      className="px-6 py-3 shrink-0"
                     >
-                      <span>CONFIGURE SPECIFICATION</span>
-                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </button>
+                      <span className="font-mono text-xs uppercase tracking-wider flex items-center gap-2">
+                        CONFIGURE SPECIFICATION
+                        <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </span>
+                    </PremiumButton>
                   </div>
 
                 </div>
@@ -981,12 +988,12 @@ export default function ServicesPage() {
         ref={manifestoRef}
         className="relative py-36 px-page bg-accent-light text-dark-text border-y border-dark-text/15 select-none overflow-hidden"
       >
-        {/* Subtle grid on cream */}
+        {/* Subtle dot pattern overlay on cream matching Homepage Section 2 */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-20 z-0"
+          className="absolute inset-0 pointer-events-none opacity-10 z-0"
           style={{
-            backgroundImage: 'linear-gradient(rgba(9, 10, 12, 0.15) 0.05rem, transparent 0.05rem), linear-gradient(90deg, rgba(9, 10, 12, 0.15) 0.05rem, transparent 0.05rem)',
-            backgroundSize: '3rem 3rem'
+            backgroundImage: 'radial-gradient(#090A0C 1.5px, transparent 1.5px)',
+            backgroundSize: '32px 32px'
           }}
         />
 
@@ -1186,12 +1193,12 @@ export default function ServicesPage() {
         id="working-models"
         className="relative py-32 px-page bg-accent-light text-dark-text border-y border-dark-text/15 select-none overflow-hidden"
       >
-        {/* Subtle technical architectural grid overlay */}
+        {/* Subtle dot pattern overlay on cream matching Homepage Section 2 */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-25 z-0"
+          className="absolute inset-0 pointer-events-none opacity-10 z-0"
           style={{
-            backgroundImage: 'linear-gradient(rgba(9, 10, 12, 0.12) 0.05rem, transparent 0.05rem), linear-gradient(90deg, rgba(9, 10, 12, 0.12) 0.05rem, transparent 0.05rem)',
-            backgroundSize: '2.5rem 2.5rem'
+            backgroundImage: 'radial-gradient(#090A0C 1.5px, transparent 1.5px)',
+            backgroundSize: '32px 32px'
           }}
         />
 
@@ -1337,12 +1344,11 @@ export default function ServicesPage() {
               <p className="text-secondary-text text-2xl md:text-3xl max-w-2xl mx-auto font-serif italic">
                 The Vereen Digital team has been notified. We will review your inquiry and reach out within 24 hours.
               </p>
-              <button
+              <PremiumButton
                 onClick={() => setFormSubmitted(false)}
-                className="mt-12 px-10 py-4 border border-accent-light/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 font-mono uppercase tracking-widest text-sm cursor-pointer"
-              >
-                Send Another Request
-              </button>
+                className="mt-12 px-10 py-4"
+                text="SEND ANOTHER REQUEST"
+              />
             </div>
           ) : (
             <form
