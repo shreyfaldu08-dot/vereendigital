@@ -16,18 +16,18 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer 
+    <footer
       className="relative h-screen bg-transparent z-0"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 w-full h-screen bg-[#060709] flex flex-col overflow-hidden pt-20">
-        
+
         {/* Main Split Grid */}
         <div className="flex-1 w-full flex flex-col md:flex-row border-t border-accent-light/10">
-          
+
           {/* Left Side - Massive CTA */}
           <div className="flex-1 border-b md:border-b-0 md:border-r border-accent-light/10 p-12 md:p-20 flex flex-col justify-between relative group">
-            
+
             {/* Spinning Motif */}
             <div className="w-16 h-16 rounded-full border border-accent-lime/30 relative animate-[spin_10s_linear_infinite] mb-12 md:mb-0">
               <div className="absolute top-0 left-1/2 w-2 h-2 bg-accent-lime rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_#89bc30]" />
@@ -35,10 +35,10 @@ const Footer = () => {
 
             <div className="relative z-10">
               <h2 className="text-5xl md:text-[6vw] leading-[0.9] font-display font-bold text-white mb-8 md:mb-12 uppercase tracking-tighter">
-                Let's build<br/>
+                Let's build<br />
                 <span className="text-accent-lime italic pr-4">something great</span>
               </h2>
-              
+
               <PremiumButton
                 color="#e2f0ca"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -55,7 +55,7 @@ const Footer = () => {
 
           {/* Right Side - Links & Info */}
           <div className="w-full md:w-[40%] flex flex-col pointer-events-auto">
-            
+
             {/* Navigation Grid */}
             <div className="flex-1 grid grid-cols-2">
               <div className="border-r border-b border-accent-light/10 p-10 md:p-16 flex flex-col justify-center">
@@ -70,7 +70,7 @@ const Footer = () => {
                   <li><a href="#process" className="hover:text-accent-lime transition-colors">Process</a></li>
                 </ul>
               </div>
-              
+
               <div className="border-b border-accent-light/10 p-10 md:p-16 flex flex-col justify-center">
                 <h4 className="font-mono text-xs uppercase tracking-widest text-accent-light/40 mb-8 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-accent-lime rounded-full" />
@@ -94,7 +94,7 @@ const Footer = () => {
                   <div className="font-mono text-xs uppercase tracking-widest text-accent-light/40 mt-1">Local Time</div>
                 </div>
               </div>
-              
+
               <div className="text-right">
                 <div className="font-mono text-xs uppercase tracking-widest text-accent-lime flex items-center gap-2 justify-end">
                   <div className="w-2 h-2 bg-accent-lime rounded-full animate-ping" />
