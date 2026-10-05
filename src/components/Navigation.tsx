@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { PremiumButton } from './PremiumButton';
 
 const Navigation = () => {
@@ -8,6 +9,7 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,12 +32,15 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Work', 'Services', 'About', 'Process', 'Contact'];
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' }
+  ];
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary-bg/90 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'} ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="px-page flex justify-between items-center max-w-7xl mx-auto">
-        <a href="#" className="flex items-center z-50 relative">
+        <a href="/" className="flex items-center z-50 relative">
           <span className="font-display font-bold text-xl tracking-tight leading-none">
             Vereen<span className="text-accent-lime">Digital</span>
           </span>
@@ -43,11 +48,20 @@ const Navigation = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="text-sm font-medium hover:text-accent-lime transition-colors">
-              {link}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive ? 'text-accent-lime font-bold' : 'text-primary-text hover:text-accent-lime'
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
           <PremiumButton
             text="START A PROJECT"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -75,12 +89,12 @@ const Navigation = () => {
           >
             {navLinks.map((link) => (
               <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+                key={link.name}
+                href={link.href}
                 className="text-4xl font-display font-medium hover:text-accent-lime transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                {link}
+                {link.name}
               </a>
             ))}
           </motion.div>

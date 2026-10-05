@@ -18,14 +18,16 @@ const FAQSection = () => {
   return (
     <section className="py-32 bg-accent-light text-[#090A0C]">
       <div className="px-page max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-5">
-            <h2 className="font-display text-5xl md:text-6xl font-bold uppercase leading-none tracking-tight sticky top-32 text-[#090A0C]">
-              Questions <br />Worth <br /><span className="text-accent-lime">Asking.</span>
-            </h2>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16">
+          <div className="md:col-span-5 relative">
+            <div className="sticky top-32">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold uppercase leading-none tracking-tight text-[#090A0C]">
+                Questions <br />Worth <br /><span className="text-accent-lime">Asking.</span>
+              </h2>
+            </div>
           </div>
 
-          <div className="lg:col-span-7">
+          <div className="md:col-span-7">
             <div className="border-t border-[#090A0C]/20">
               {faqs.map((faq, i) => (
                 <div key={i} className={`border-b border-[#090A0C]/20 transition-all duration-500 ${openIndex === i ? 'bg-accent-lime px-8 rounded-2xl my-4 shadow-[0_10px_40px_rgba(137,188,48,0.4)] border-transparent' : 'py-2'}`}>

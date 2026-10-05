@@ -209,7 +209,7 @@ const industries = [
 const manifestoWords = "We are your architectural technology partners, committed to engineering digital ecosystems and AI search dominance that make a lasting impact on enterprise market share while ensuring your revenue goals become reality.".split(" ");
 
 export default function ServicesPage() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
   const deckRef = useRef<HTMLDivElement>(null);
@@ -326,7 +326,7 @@ export default function ServicesPage() {
         }
       });
 
-    }, containerRef);
+    }, containerRef.current || undefined);
 
     return () => ctx.revert();
   }, []);
@@ -600,13 +600,14 @@ export default function ServicesPage() {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full bg-[#000000] text-primary-text selection:bg-accent-lime selection:text-black overflow-x-hidden">
-
+    <>
       {/* Dynamic Custom Cursor */}
       <CustomCursor />
 
       {/* Global Navigation Header */}
       <Navigation />
+
+      <main ref={containerRef} className="relative w-full bg-[#000000] text-primary-text selection:bg-accent-lime selection:text-black">
 
       {/* ========================================================= */}
       {/* 01 — WOLFX HERO LANDING: A CREATIVE TECHNOLOGY COMPANY     */}
@@ -836,8 +837,8 @@ export default function ServicesPage() {
                     }
                   }}
                   className={`px-3 py-1 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer ${activeDeckCard === idx
-                      ? 'bg-accent-lime text-dark-text font-bold shadow-[0_0_15px_rgba(137,188,48,0.4)]'
-                      : 'bg-white/[0.04] text-white/50 hover:text-white border border-white/5'
+                    ? 'bg-accent-lime text-dark-text font-bold shadow-[0_0_15px_rgba(137,188,48,0.4)]'
+                    : 'bg-white/[0.04] text-white/50 hover:text-white border border-white/5'
                     }`}
                 >
                   {item.num} • {item.category}
@@ -862,8 +863,8 @@ export default function ServicesPage() {
                   onMouseMove={handleCardTilt}
                   onMouseLeave={resetCardTilt}
                   className={`wolfx-solution-card relative w-[88vw] sm:w-[680px] lg:w-[840px] min-h-[580px] h-auto lg:h-[620px] rounded-[32px] p-6 sm:p-8 lg:p-10 flex flex-col justify-between shrink-0 overflow-hidden border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${isSelected
-                      ? 'bg-gradient-to-b from-[#131622] via-[#0d0f17] to-[#08090d] border-accent-lime/60 shadow-[0_0_60px_rgba(137,188,48,0.22)]'
-                      : 'bg-[#0c0e14]/90 border-white/10 hover:border-white/20'
+                    ? 'bg-gradient-to-b from-[#131622] via-[#0d0f17] to-[#08090d] border-accent-lime/60 shadow-[0_0_60px_rgba(137,188,48,0.22)]'
+                    : 'bg-[#0c0e14]/90 border-white/10 hover:border-white/20'
                     }`}
                 >
                   {/* Dynamic Interactive Spotlight */}
@@ -1109,8 +1110,8 @@ export default function ServicesPage() {
                     opacity: idx === 0 ? 1 : 0
                   }}
                   className={`offering-stack-card absolute inset-0 w-full h-full p-7 sm:p-9 rounded-[32px] bg-[#0c0e14] border transition-colors duration-300 will-change-transform flex flex-col justify-between shadow-[0_-20px_50px_rgba(0,0,0,0.95),0_25px_60px_rgba(0,0,0,0.7)] ${activeOfferingIdx === idx
-                      ? 'border-accent-lime/60 shadow-[0_0_50px_rgba(137,188,48,0.2)]'
-                      : 'border-white/10'
+                    ? 'border-accent-lime/60 shadow-[0_0_50px_rgba(137,188,48,0.2)]'
+                    : 'border-white/10'
                     }`}
                 >
                   {/* Top Subtle Edge Sheen */}
@@ -1299,16 +1300,20 @@ export default function ServicesPage() {
       </section>
 
       {/* ========================================================= */}
-      {/* 10 — WOLFX CONSULTATION INTAKE & SCOPE CONFIGURATOR       */}
+      {/* 10 — FREQUENTLY ASKED QUESTIONS (SAME AS HOME PAGE)       */}
       {/* ========================================================= */}
+      <FAQSection />
+
       {/* ========================================================= */}
-      {/* 10 — INITIATE / INQUIRY FORM (SAME TO SAME AS HOME PAGE)  */}
+      {/* 11 — INITIATE / INQUIRY FORM (SAME AS HOME PAGE)          */}
       {/* ========================================================= */}
       <section
         ref={inquiryRef}
-        id="inquiry-form"
-        className="py-32 md:py-48 bg-[#050608] relative overflow-hidden flex flex-col items-center justify-center min-h-screen border-b border-white/10"
+        id="contact"
+        className="py-32 md:py-48 bg-[#050608] relative overflow-hidden flex flex-col items-center justify-center min-h-screen"
       >
+        <div id="inquiry-form" className="absolute -top-32" />
+
         {/* Background Ambient Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-accent-lime/5 blur-[150px] rounded-full pointer-events-none" />
 
@@ -1426,15 +1431,10 @@ export default function ServicesPage() {
           )}
         </div>
       </section>
+    </main>
 
-      {/* ========================================================= */}
-      {/* 11 — FREQUENTLY ASKED QUESTIONS (SAME AS HOME PAGE)       */}
-      {/* ========================================================= */}
-      <FAQSection />
-
-      {/* Global Footer */}
-      <Footer />
-
-    </div>
+    {/* Global Reveal Footer */}
+    <Footer />
+  </>
   );
 }
