@@ -555,34 +555,34 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
         <section ref={heroRef} className="relative h-screen w-full overflow-hidden bg-primary-bg select-none flex flex-col justify-between pt-24 pb-10 px-page">
 
           {/* Interactive Minimalist Particle Canvas */}
-          <canvas 
-            ref={heroCanvasRef} 
+          <canvas
+            ref={heroCanvasRef}
             className="absolute inset-0 pointer-events-none z-0 opacity-80"
           />
 
           {/* Minimalist 3D Geometric Orbitals (Dead-Center) */}
           <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none" style={{ perspective: '1000px' }}>
-            <div 
+            <div
               className="absolute w-[44vw] h-[44vw] rounded-full border border-accent-lime/10 pointer-events-none animate-[spin_40s_linear_infinite]"
               style={{ borderStyle: 'dashed' }}
             />
-            <div 
+            <div
               className="absolute w-[32vw] h-[32vw] rounded-full border border-white/5 pointer-events-none animate-[spin_25s_linear_infinite_reverse]"
             />
-            <div 
+            <div
               className="absolute w-[36vw] h-[36vw] rounded-full opacity-20 animate-pulse pointer-events-none"
               style={{
                 background: 'radial-gradient(circle, rgba(137, 188, 48, 0.22) 0%, transparent 70%)',
                 animationDuration: '4s'
               }}
             />
-            <div 
-              style={{ 
-                width: '22vw', 
-                height: '22vw', 
-                background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)', 
+            <div
+              style={{
+                width: '22vw',
+                height: '22vw',
+                background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)',
                 borderRadius: '9999px',
-              }} 
+              }}
             />
           </div>
 
@@ -591,10 +591,10 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
           {/* Center Monumental Typography with Smooth 3D Mouse Tracking */}
           <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center w-full" style={{ perspective: '1200px' }}>
             <div ref={heroTextRef} className="flex flex-col items-center text-center" style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}>
-              
-              <h1 
-                ref={heroMouseTrackerRef} 
-                className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center pointer-events-auto cursor-default" 
+
+              <h1
+                ref={heroMouseTrackerRef}
+                className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center pointer-events-auto cursor-default"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <span className="text-[12vw] sm:text-[14vw] text-light-bg leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
@@ -701,7 +701,7 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
         {/* ========================================================= */}
         {/* 03 — MONUMENTAL KINETIC CAPABILITY STREAM                 */}
         {/* ========================================================= */}
-        <section 
+        <section
           ref={transitionSectionRef}
           className="relative w-full py-16 sm:py-24 bg-[#050608] border-t border-b border-white/10 overflow-hidden select-none flex flex-col justify-center gap-5 sm:gap-7"
         >
@@ -728,9 +728,8 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
                 <div key={loopIdx} className="flex items-center shrink-0">
                   {track1List.map((item, itemIdx) => (
                     <div key={itemIdx} className="flex items-center gap-6 sm:gap-10 mr-6 sm:mr-10">
-                      <span className={`font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight transition-colors ${
-                        itemIdx === 0 ? 'text-white' : itemIdx % 2 === 1 ? 'text-accent-lime' : 'text-accent-light'
-                      }`}>
+                      <span className={`font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight transition-colors ${itemIdx === 0 ? 'text-white' : itemIdx % 2 === 1 ? 'text-accent-lime' : 'text-accent-light'
+                        }`}>
                         {item}
                       </span>
                       <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-accent-lime shadow-[0_0_10px_#89bc30]" />
@@ -750,7 +749,7 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
                     const strokeColor = itemIdx % 2 === 0 ? '#FFFFFF' : '#89bc30';
                     return (
                       <div key={itemIdx} className="flex items-center gap-6 sm:gap-10 mr-6 sm:mr-10">
-                        <span 
+                        <span
                           className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight transition-all duration-300 hover:brightness-110"
                           style={{
                             color: strokeColor,
@@ -760,7 +759,7 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
                         >
                           {item}
                         </span>
-                        <span 
+                        <span
                           className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full"
                           style={{
                             backgroundColor: strokeColor,
@@ -1000,7 +999,7 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
         {/* ========================================================= */}
         <section ref={offeringsRef} id="offerings" className="relative min-h-screen py-24 sm:py-32 px-page bg-[#090A0C] border-b border-white/10 select-none flex flex-col justify-center">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             <div className="lg:col-span-5">
               <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-6 font-bold uppercase">
                 07 — ARCHITECTURAL PORTFOLIO
@@ -1026,11 +1025,10 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ config
                       transformOrigin: 'top center',
                       opacity: idx === 0 ? 1 : 0
                     }}
-                    className={`offering-stack-card absolute inset-0 w-full h-full p-7 sm:p-9 rounded-[32px] bg-[#0c0e14] border transition-colors duration-300 will-change-transform flex flex-col justify-between shadow-[0_-20px_50px_rgba(0,0,0,0.95),0_25px_60px_rgba(0,0,0,0.7)] ${
-                      activeOfferingIdx === idx
+                    className={`offering-stack-card absolute inset-0 w-full h-full p-7 sm:p-9 rounded-[32px] bg-[#0c0e14] border transition-colors duration-300 will-change-transform flex flex-col justify-between shadow-[0_-20px_50px_rgba(0,0,0,0.95),0_25px_60px_rgba(0,0,0,0.7)] ${activeOfferingIdx === idx
                         ? 'border-accent-lime/60 shadow-[0_0_50px_rgba(137,188,48,0.2)]'
                         : 'border-white/10'
-                    }`}
+                      }`}
                   >
                     <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-accent-lime/50 to-transparent pointer-events-none" />
 

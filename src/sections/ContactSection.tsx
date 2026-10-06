@@ -12,12 +12,12 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-32 md:py-48 bg-[#050608] relative overflow-hidden flex flex-col items-center justify-center min-h-screen">
-      
+
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-accent-lime/5 blur-[150px] rounded-full pointer-events-none" />
-      
+
       <div className="px-page w-full max-w-[90rem] mx-auto relative z-10">
-        
+
         <div className="mb-20">
           <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-4 font-bold uppercase text-center">08 — Initiate</h2>
         </div>
@@ -33,8 +33,8 @@ const ContactSection = () => {
             <p className="text-secondary-text text-2xl md:text-3xl max-w-2xl mx-auto font-serif italic">
               The Vereen Digital team has been notified. We will review your inquiry and reach out within 24 hours.
             </p>
-            <PremiumButton 
-              onClick={() => setIsSubmitted(false)} 
+            <PremiumButton
+              onClick={() => setIsSubmitted(false)}
               className="mt-12 px-10 py-4"
               text="SEND ANOTHER REQUEST"
             />
@@ -43,9 +43,9 @@ const ContactSection = () => {
           <form onSubmit={handleSubmit} className="w-full">
             <h3 className="font-display text-[7vw] md:text-[5vw] lg:text-[4vw] font-bold text-accent-light/40 leading-[1.4] md:leading-[1.6] tracking-tight">
               Hello, my name is <br className="md:hidden" />
-              <input required type="text" placeholder="Your Name" className="inline-block bg-transparent border-b-2 border-accent-light/20 text-white outline-none w-[200px] md:w-[350px] lg:w-[400px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all placeholder:text-accent-light/10 mx-2 md:mx-6 pb-2" /> 
+              <input required type="text" placeholder="Your Name" className="inline-block bg-transparent border-b-2 border-accent-light/20 text-white outline-none w-[200px] md:w-[350px] lg:w-[400px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all placeholder:text-accent-light/10 mx-2 md:mx-6 pb-2" />
               <br className="hidden lg:block" />and I represent <br className="md:hidden" />
-              <input required type="text" placeholder="Company" className="inline-block bg-transparent border-b-2 border-accent-light/20 text-white outline-none w-[200px] md:w-[350px] lg:w-[400px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all placeholder:text-accent-light/10 mx-2 md:mx-6 pb-2" />. 
+              <input required type="text" placeholder="Company" className="inline-block bg-transparent border-b-2 border-accent-light/20 text-white outline-none w-[200px] md:w-[350px] lg:w-[400px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all placeholder:text-accent-light/10 mx-2 md:mx-6 pb-2" />.
               <br className="hidden lg:block" />We are looking for a world-class team to help us with <br className="md:hidden" />
               <div className="inline-block relative mx-2 md:mx-6">
                 <select className="appearance-none bg-transparent border-b-2 border-accent-light/20 text-accent-lime outline-none w-[280px] md:w-[450px] lg:w-[500px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all pb-2 cursor-pointer relative z-10">
@@ -54,7 +54,7 @@ const ContactSection = () => {
                   <option value="ai" className="bg-[#090A0C] text-lg">Workflow AI</option>
                   <option value="cloud" className="bg-[#090A0C] text-lg">Cloud Infrastructure</option>
                 </select>
-              </div>. 
+              </div>.
               <br className="hidden lg:block" />We have a budget of roughly <br className="md:hidden" />
               <div className="inline-block relative mx-2 md:mx-6">
                 <select className="appearance-none bg-transparent border-b-2 border-accent-light/20 text-white outline-none w-[220px] md:w-[350px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all pb-2 cursor-pointer relative z-10">
@@ -62,21 +62,21 @@ const ContactSection = () => {
                   <option value="100k" className="bg-[#090A0C] text-lg">$100k - $250k</option>
                   <option value="250k+" className="bg-[#090A0C] text-lg">$250k+</option>
                 </select>
-              </div>. 
+              </div>.
               <br className="hidden lg:block" />You can reach me at <br className="md:hidden" />
-              <input required type="email" placeholder="Email Address" className="inline-block bg-transparent border-b-2 border-accent-light/20 text-white outline-none w-[250px] md:w-[500px] lg:w-[600px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all placeholder:text-accent-light/10 mx-2 md:mx-6 pb-2" /> 
+              <input required type="email" placeholder="Email Address" className="inline-block bg-transparent border-b-2 border-accent-light/20 text-white outline-none w-[250px] md:w-[500px] lg:w-[600px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all placeholder:text-accent-light/10 mx-2 md:mx-6 pb-2" />
               <br className="hidden lg:block" />to get the conversation started.
             </h3>
-            
+
             <div className="mt-32 flex flex-col md:flex-row items-center justify-between gap-10">
               <div className="flex gap-8 font-mono text-sm text-secondary-text">
                 <a href="mailto:hello@vereendgital.com" className="hover:text-accent-lime transition-colors">hello@vereendigital.com</a>
                 <span className="hidden md:block">/</span>
                 <span className="hidden md:block">India</span>
               </div>
-              
-              <PremiumButton 
-                type="submit" 
+
+              <PremiumButton
+                type="submit"
                 text="SUBMIT INQUIRY"
                 className="px-8 md:px-12 py-4 md:py-5 font-bold uppercase text-sm md:text-base w-full md:w-auto"
               />

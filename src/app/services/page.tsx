@@ -71,7 +71,7 @@ const SERVICES_DOSSIER: ServiceDossier[] = [
     theme: 'dark',
     bgClass: 'bg-[#090A0C]',
     textClass: 'text-white',
-    accentColor: '#89bc30',
+    accentColor: '#e2f0ca',
     icon: Search
   },
   {
@@ -96,7 +96,7 @@ const SERVICES_DOSSIER: ServiceDossier[] = [
     theme: 'cream',
     bgClass: 'bg-accent-light',
     textClass: 'text-[#090A0C]',
-    accentColor: '#89bc30',
+    accentColor: '#090A0C',
     icon: Zap
   },
   {
@@ -121,7 +121,7 @@ const SERVICES_DOSSIER: ServiceDossier[] = [
     theme: 'dark',
     bgClass: 'bg-[#090A0C]',
     textClass: 'text-white',
-    accentColor: '#89bc30',
+    accentColor: '#e2f0ca',
     icon: Share2
   },
   {
@@ -146,7 +146,7 @@ const SERVICES_DOSSIER: ServiceDossier[] = [
     theme: 'cream',
     bgClass: 'bg-accent-light',
     textClass: 'text-[#090A0C]',
-    accentColor: '#89bc30',
+    accentColor: '#090A0C',
     icon: MessageSquare
   },
   {
@@ -171,7 +171,7 @@ const SERVICES_DOSSIER: ServiceDossier[] = [
     theme: 'dark',
     bgClass: 'bg-[#090A0C]',
     textClass: 'text-white',
-    accentColor: '#89bc30',
+    accentColor: '#e2f0ca',
     icon: Globe
   }
 ];
@@ -426,17 +426,17 @@ export default function ServicesPage() {
           { clipPath: 'inset(100% 0% 0% 0%)' },
           { clipPath: 'inset(0% 0% 0% 0%)', ease: 'power2.inOut', duration: 1 }
         )
-        // 2. Parallax zoom entry on inner content
-        .fromTo(content,
-          { yPercent: 12, scale: 1.05 },
-          { yPercent: 0, scale: 1, ease: 'power2.inOut', duration: 1 },
-          '<'
-        )
-        // 3. Scale down previous panel into 3D background with depth
-        .to(prevPanel,
-          { scale: 0.86, opacity: 0.2, ease: 'power2.inOut', duration: 1 },
-          '<'
-        );
+          // 2. Parallax zoom entry on inner content
+          .fromTo(content,
+            { yPercent: 12, scale: 1.05 },
+            { yPercent: 0, scale: 1, ease: 'power2.inOut', duration: 1 },
+            '<'
+          )
+          // 3. Scale down previous panel into 3D background with depth
+          .to(prevPanel,
+            { scale: 0.86, opacity: 0.2, ease: 'power2.inOut', duration: 1 },
+            '<'
+          );
       });
 
       /* Kinetic Capability Stream Acceleration in Section 03 */
@@ -513,49 +513,49 @@ export default function ServicesPage() {
         <section ref={heroRef} className="relative min-h-[92vh] sm:min-h-screen w-full overflow-hidden bg-primary-bg select-none flex flex-col justify-between pt-24 pb-10 px-page">
 
           {/* Interactive Particle Canvas */}
-          <canvas 
-            ref={heroCanvasRef} 
+          <canvas
+            ref={heroCanvasRef}
             className="absolute inset-0 pointer-events-none z-0 opacity-80"
           />
 
           {/* Minimalist 3D Geometric Orbitals */}
           <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none" style={{ perspective: '1000px' }}>
-            <div 
+            <div
               className="absolute w-[44vw] h-[44vw] rounded-full border border-accent-lime/10 pointer-events-none animate-[spin_40s_linear_infinite]"
               style={{ borderStyle: 'dashed' }}
             />
-            <div 
+            <div
               className="absolute w-[32vw] h-[32vw] rounded-full border border-white/5 pointer-events-none animate-[spin_25s_linear_infinite_reverse]"
             />
-            <div 
+            <div
               className="absolute w-[36vw] h-[36vw] rounded-full opacity-20 animate-pulse pointer-events-none"
               style={{
                 background: 'radial-gradient(circle, rgba(137, 188, 48, 0.22) 0%, transparent 70%)',
                 animationDuration: '4s'
               }}
             />
-            <div 
-              style={{ 
-                width: '20vw', 
-                height: '20vw', 
-                background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)', 
+            <div
+              style={{
+                width: '20vw',
+                height: '20vw',
+                background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)',
                 borderRadius: '9999px',
-              }} 
+              }}
             />
           </div>
 
           {/* Hero Monumental Typography with 3D Mouse Tracking */}
           <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center w-full" style={{ perspective: '1200px' }}>
             <div ref={heroTextRef} className="flex flex-col items-center text-center" style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}>
-              
+
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-accent-lime font-mono text-xs uppercase tracking-widest font-bold mb-6 shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
                 <span>01 — 5 DIMENSIONAL ARCHITECTURES</span>
               </div>
 
-              <h1 
-                ref={heroMouseTrackerRef} 
-                className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center pointer-events-auto cursor-default" 
+              <h1
+                ref={heroMouseTrackerRef}
+                className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center pointer-events-auto cursor-default"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <span className="text-[12vw] sm:text-[14vw] text-light-bg leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
@@ -627,8 +627,8 @@ export default function ServicesPage() {
           {/* Floating Sticky Cybernetic HUD */}
           <div className="absolute top-8 left-page right-page z-50 pointer-events-none flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-accent-lime font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 pointer-events-auto">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
+              <div className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-accent-light font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 pointer-events-auto">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse shadow-[0_0_8px_#e2f0ca]" />
                 <span>01 — ARCHITECTURAL ARCHIVES</span>
               </div>
             </div>
@@ -639,11 +639,10 @@ export default function ServicesPage() {
                 <button
                   key={s.id}
                   onClick={() => scrollToLayer(idx)}
-                  className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold uppercase transition-all cursor-pointer backdrop-blur-md ${
-                    activePanelIdx === idx
-                      ? 'bg-accent-lime text-black shadow-[0_0_15px_rgba(137,188,48,0.4)]'
+                  className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold uppercase transition-all cursor-pointer backdrop-blur-md ${activePanelIdx === idx
+                      ? 'bg-accent-light text-[#090A0C] shadow-[0_0_15px_rgba(226,240,202,0.4)]'
                       : 'bg-black/40 text-white/60 hover:text-white border border-white/15'
-                  }`}
+                    }`}
                 >
                   {s.num}
                 </button>
@@ -654,64 +653,59 @@ export default function ServicesPage() {
           {/* THE 5 FULL-SCREEN DIMENSIONAL PANELS */}
           <div className="relative w-full h-full">
             {SERVICES_DOSSIER.map((service, idx) => {
-              const IconComponent = service.icon;
               const isCream = service.theme === 'cream';
 
               return (
                 <div
                   key={service.id}
-                  className={`service-depth-panel absolute inset-0 w-full h-full flex items-center justify-center p-page will-change-transform ${
-                    service.bgClass
-                  }`}
+                  className={`service-depth-panel absolute inset-0 w-full h-full flex items-center justify-center p-page will-change-transform ${service.bgClass
+                    }`}
                   style={{ zIndex: idx + 10 }}
                 >
                   {/* Subtle Dot Pattern on Cream Panels */}
                   {isCream && (
-                    <div 
-                      className="absolute inset-0 opacity-10 pointer-events-none z-0" 
-                      style={{ 
-                        backgroundImage: 'radial-gradient(#090A0C 1.5px, transparent 1.5px)', 
-                        backgroundSize: '32px 32px' 
+                    <div
+                      className="absolute inset-0 opacity-10 pointer-events-none z-0"
+                      style={{
+                        backgroundImage: 'radial-gradient(#090A0C 1.5px, transparent 1.5px)',
+                        backgroundSize: '32px 32px'
                       }}
                     />
                   )}
 
-                  {/* Subtle Radial Ambient on Dark Panels */}
+                  {/* Subtle Ethereal Radial Ambient on Dark Panels */}
                   {!isCream && (
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent-lime/10 blur-[140px] rounded-full pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-white/[0.03] blur-[140px] rounded-full pointer-events-none" />
                   )}
 
                   {/* Panel Content Container with Parallax Zoom Entry */}
                   <div className="panel-inner-content relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center will-change-transform pt-12">
-                    
+
                     {/* Left Column: Monumental Split Typography & Specs */}
                     <div className="lg:col-span-6 flex flex-col justify-center">
-                      
+
                       {/* Top Category Tag & Spec ID */}
                       <div className="flex items-center gap-3 mb-4">
                         <span className="font-mono text-sm tracking-widest font-bold" style={{ color: service.accentColor }}>
                           {service.category}
                         </span>
-                        <span className={`px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider ${
-                          isCream
+                        <span className={`px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider ${isCream
                             ? 'bg-[#090A0C]/10 text-[#090A0C] border border-[#090A0C]/15'
                             : 'bg-white/10 text-white/80 border border-white/15'
-                        }`}>
+                          }`}>
                           {service.specId}
                         </span>
                       </div>
 
                       {/* Monumental Display Heading (Exact Case Studies Scale) */}
-                      <h3 className={`font-display text-[9vw] lg:text-[7vw] leading-[0.85] font-black uppercase tracking-tighter mb-6 ${
-                        service.textClass
-                      }`}>
+                      <h3 className={`font-display text-[9vw] lg:text-[7vw] leading-[0.85] font-black uppercase tracking-tighter mb-6 ${service.textClass
+                        }`}>
                         {service.name}
                       </h3>
 
                       {/* Punchy Concise Value Proposition */}
-                      <p className={`text-base sm:text-xl font-sans leading-relaxed mb-8 max-w-xl font-light ${
-                        isCream ? 'text-[#090A0C]/80' : 'text-white/70'
-                      }`}>
+                      <p className={`text-base sm:text-xl font-sans leading-relaxed mb-8 max-w-xl font-light ${isCream ? 'text-[#090A0C]/80' : 'text-white/70'
+                        }`}>
                         {service.tagline}
                       </p>
 
@@ -719,12 +713,14 @@ export default function ServicesPage() {
                       <div className="grid grid-cols-2 gap-2.5 mb-8 max-w-lg">
                         {service.deliverables.map((item, dIdx) => (
                           <div key={dIdx} className="flex items-center gap-2">
-                            <div className="w-4 h-4 rounded-full bg-accent-lime/20 border border-accent-lime/40 flex items-center justify-center shrink-0">
-                              <Check size={10} className="text-accent-lime stroke-[3]" />
+                            <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 border ${isCream
+                                ? 'bg-[#090A0C]/10 border-[#090A0C]/20'
+                                : 'bg-white/10 border-white/20'
+                              }`}>
+                              <Check size={10} className={`stroke-[3] ${isCream ? 'text-[#090A0C]' : 'text-accent-light'}`} />
                             </div>
-                            <span className={`font-mono text-xs font-medium truncate ${
-                              isCream ? 'text-[#090A0C]/90' : 'text-white/85'
-                            }`}>
+                            <span className={`font-mono text-xs font-medium truncate ${isCream ? 'text-[#090A0C]/90' : 'text-white/85'
+                              }`}>
                               {item}
                             </span>
                           </div>
@@ -735,76 +731,37 @@ export default function ServicesPage() {
                       <div className="flex items-center gap-4">
                         <a
                           href={service.href}
-                          className={`inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-mono text-xs font-black uppercase tracking-wider transition-all shadow-md group cursor-pointer ${
-                            isCream
-                              ? 'bg-[#090A0C] text-accent-light hover:bg-accent-lime hover:text-black shadow-[0_4px_20px_rgba(9,10,12,0.15)]'
-                              : 'bg-accent-lime text-black hover:bg-white shadow-[0_0_25px_rgba(137,188,48,0.35)]'
-                          }`}
+                          className={`inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-mono text-xs font-black uppercase tracking-wider transition-all shadow-md group cursor-pointer ${isCream
+                              ? 'bg-[#090A0C] text-accent-light hover:bg-[#15171A] hover:text-white shadow-[0_4px_20px_rgba(9,10,12,0.15)]'
+                              : 'bg-accent-light text-[#090A0C] hover:bg-white hover:text-black shadow-[0_4px_25px_rgba(226,240,202,0.25)]'
+                            }`}
                         >
                           <span>ENTER {service.name.toUpperCase()} PORTAL</span>
                           <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </a>
 
-                        <span className={`font-mono text-xs font-bold ${
-                          isCream ? 'text-[#3f5d13]' : 'text-accent-lime'
-                        }`}>
+                        <span className={`font-mono text-xs font-bold ${isCream ? 'text-[#090A0C]' : 'text-accent-light'
+                          }`}>
                           {service.metric}
                         </span>
                       </div>
 
                     </div>
 
-                    {/* Right Column: Editorial Architectural Window (NO FAKE TELEMETRY) */}
+                    {/* Right Column: Clean Simple Image (No Content / No Overlays) */}
                     <div className="lg:col-span-6 flex flex-col justify-center">
-                      <div className={`relative rounded-[36px] overflow-hidden border shadow-2xl transition-all duration-500 group select-none ${
-                        isCream
+                      <div className={`relative rounded-[36px] overflow-hidden border shadow-2xl transition-all duration-500 group select-none ${isCream
                           ? 'border-[#090A0C]/15 shadow-[0_20px_50px_rgba(9,10,12,0.12)] bg-white'
-                          : 'border-accent-lime/30 shadow-[0_0_50px_rgba(137,188,48,0.2)] bg-[#121520]'
-                      }`}>
-                        
-                        {/* High-Resolution Cinematic Frame */}
-                        <div className="relative w-full h-[340px] sm:h-[400px] lg:h-[450px] overflow-hidden">
+                          : 'border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.6)] bg-[#121520]'
+                        }`}>
+
+                        {/* High-Resolution Clean Image */}
+                        <div className="relative w-full h-[340px] sm:h-[400px] lg:h-[460px] overflow-hidden">
                           <img
                             src={service.image}
                             alt={service.name}
                             className="w-full h-full object-cover will-change-transform group-hover:scale-105 transition-transform duration-700 ease-out"
                           />
-
-                          {/* Cinematic Depth Gradient Overlay */}
-                          <div className={`absolute inset-0 pointer-events-none ${
-                            isCream
-                              ? 'bg-gradient-to-t from-black/85 via-black/25 to-transparent'
-                              : 'bg-gradient-to-t from-[#090A0C] via-black/40 to-black/20'
-                          }`} />
-
-                          {/* Top Floating Badge Strip */}
-                          <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-10 pointer-events-none">
-                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider">
-                              <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
-                              <span>{service.badge}</span>
-                            </div>
-
-                            <div className="w-11 h-11 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-accent-lime shadow-md">
-                              <IconComponent size={22} strokeWidth={1.8} />
-                            </div>
-                          </div>
-
-                          {/* Bottom Floating Stat Callout */}
-                          <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between pointer-events-none">
-                            <div>
-                              <span className="font-display text-4xl sm:text-6xl font-black text-white leading-none block drop-shadow-md tracking-tight">
-                                {service.statNumber}
-                              </span>
-                              <span className="font-mono text-xs sm:text-sm font-semibold text-accent-lime uppercase tracking-wider mt-1 block drop-shadow">
-                                {service.statLabel}
-                              </span>
-                            </div>
-
-                            <span className="px-4 py-2 rounded-full bg-accent-lime text-black font-mono text-xs font-black uppercase tracking-wider shadow-lg">
-                              ENTERPRISE SLA
-                            </span>
-                          </div>
-
                         </div>
 
                       </div>
@@ -821,17 +778,17 @@ export default function ServicesPage() {
         {/* ========================================================= */}
         {/* 03 — DUAL KINETIC CAPABILITY STREAM (DARK OBSIDIAN)       */}
         {/* ========================================================= */}
-        <section 
+        <section
           ref={transitionSectionRef}
           className="relative w-full py-16 sm:py-20 bg-[#090A0C] border-t border-b border-white/10 overflow-hidden select-none flex flex-col justify-center gap-5 sm:gap-6"
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[220px] bg-accent-lime/10 blur-[130px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[220px] bg-white/[0.03] blur-[130px] rounded-full pointer-events-none" />
 
           {/* Eyebrow */}
           <div className="max-w-7xl mx-auto w-full px-page flex items-center justify-between font-mono text-xs text-white/40 relative z-10">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse" />
-              <span className="text-accent-lime font-bold uppercase tracking-wider">02 — ARCHITECTURAL SPECTRUM</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse shadow-[0_0_8px_#e2f0ca]" />
+              <span className="text-accent-light font-bold uppercase tracking-wider">02 — ARCHITECTURAL SPECTRUM</span>
             </div>
             <span className="hidden sm:inline text-white/30 tracking-wider">CONTINUOUS 120 FPS STREAM</span>
           </div>
@@ -843,12 +800,11 @@ export default function ServicesPage() {
                 <div key={loopIdx} className="flex items-center shrink-0">
                   {SERVICES_DOSSIER.map((s, sIdx) => (
                     <div key={sIdx} className="flex items-center gap-6 sm:gap-10 mr-6 sm:mr-10">
-                      <span className={`font-display text-4xl sm:text-6xl font-black uppercase tracking-tight transition-colors ${
-                        sIdx === 0 ? 'text-white' : sIdx % 2 === 1 ? 'text-accent-lime' : 'text-accent-light'
-                      }`}>
+                      <span className={`font-display text-4xl sm:text-6xl font-black uppercase tracking-tight transition-colors ${sIdx % 2 === 0 ? 'text-white' : 'text-accent-light'
+                        }`}>
                         {s.name}
                       </span>
-                      <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-accent-lime shadow-[0_0_10px_#89bc30]" />
+                      <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-accent-light shadow-[0_0_10px_#e2f0ca]" />
                       <span className="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white/70">
                         {s.category}
                       </span>
@@ -866,10 +822,10 @@ export default function ServicesPage() {
               {[...Array(3)].map((_, loopIdx) => (
                 <div key={loopIdx} className="flex items-center shrink-0">
                   {SERVICES_DOSSIER.map((s, sIdx) => {
-                    const strokeColor = sIdx % 2 === 0 ? '#FFFFFF' : '#89bc30';
+                    const strokeColor = sIdx % 2 === 0 ? '#FFFFFF' : '#e2f0ca';
                     return (
                       <div key={sIdx} className="flex items-center gap-6 sm:gap-10 mr-6 sm:mr-10">
-                        <span 
+                        <span
                           className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight transition-all duration-300 hover:brightness-110"
                           style={{
                             color: strokeColor,
@@ -879,11 +835,11 @@ export default function ServicesPage() {
                         >
                           {s.metric}
                         </span>
-                        <span 
+                        <span
                           className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full"
                           style={{
                             backgroundColor: strokeColor,
-                            boxShadow: strokeColor === '#89bc30' ? '0 0 10px #89bc30' : 'none'
+                            boxShadow: strokeColor === '#e2f0ca' ? '0 0 10px #e2f0ca' : 'none'
                           }}
                         />
                       </div>
