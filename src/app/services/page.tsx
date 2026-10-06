@@ -253,6 +253,11 @@ export default function ServicesPage() {
   const [activeOfferingIdx, setActiveOfferingIdx] = useState<number>(0);
   const [capabilitySlide, setCapabilitySlide] = useState<number>(0);
 
+  /* Hero Section Refs for Particle Canvas & 3D Tilt Tracking */
+  const heroCanvasRef = useRef<HTMLCanvasElement>(null);
+  const heroMouseTrackerRef = useRef<HTMLHeadingElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
+
   /* Conversational Inquiry Form State (Same as Home Page) */
   const [userName, setUserName] = useState<string>("");
   const [companyName, setCompanyName] = useState<string>("");
@@ -291,6 +296,119 @@ export default function ServicesPage() {
   }, []);
 
 
+
+  /* ----------------------------------------------------------------- */
+  /* 2. SERVICES HERO INTERACTIVE MINIMALIST PARTICLE CANVAS           */
+  /* ----------------------------------------------------------------- */
+  useEffect(() => {
+    const canvas = heroCanvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animId: number;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', handleResize);
+
+    const particleCount = 40;
+    const particles = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      size: Math.random() * 2 + 1,
+      alpha: Math.random() * 0.35 + 0.15,
+      color: Math.random() > 0.45 ? '#89bc30' : '#F0EFEA',
+    }));
+
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+    let targetX = width / 2;
+    let targetY = height / 2;
+
+    const onPointerMove = (e: MouseEvent) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    };
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      mouseX += (targetX - mouseX) * 0.05;
+      mouseY += (targetY - mouseY) * 0.05;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 160 && dist > 0) {
+          const force = (160 - dist) / 160;
+          p.x += (dx / dist) * force * 1.4;
+          p.y += (dy / dist) * force * 1.4;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+      }
+
+      animId = requestAnimationFrame(render);
+    };
+
+    animId = requestAnimationFrame(render);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', onPointerMove);
+    };
+  }, []);
+
+  /* ----------------------------------------------------------------- */
+  /* 2B. HERO SMOOTH 3D MOUSE TRACKING TILT                            */
+  /* ----------------------------------------------------------------- */
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.scrollY > 80 || !heroMouseTrackerRef.current) return;
+      const { innerWidth, innerHeight } = window;
+      const nx = (e.clientX / innerWidth - 0.5) * 2;
+      const ny = (e.clientY / innerHeight - 0.5) * 2;
+
+      gsap.to(heroMouseTrackerRef.current, {
+        rotateY: nx * 9,
+        rotateX: -ny * 9,
+        x: nx * 22,
+        y: ny * 14,
+        duration: 0.7,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   /* ----------------------------------------------------------------- */
   /* 3. WOLFX AUTO-CYCLING CAPABILITY TICKER TIMER                     */
@@ -638,22 +756,52 @@ export default function ServicesPage() {
       <main ref={containerRef} className="relative w-full bg-[#000000] text-primary-text selection:bg-accent-lime selection:text-black">
 
         {/* ========================================================= */}
-        {/* 01 — WOLFX HERO LANDING: A CREATIVE TECHNOLOGY COMPANY     */}
+        {/* 01 — HERO LANDING: ICONIC CENTERED ORBITAL SERVICES       */}
         {/* ========================================================= */}
-        <section ref={heroRef} className="relative min-h-screen w-full flex flex-col justify-between pt-32 pb-16 px-page overflow-hidden select-none bg-[#000000]">
+        <section ref={heroRef} className="relative h-screen w-full overflow-hidden bg-primary-bg select-none flex flex-col justify-between pt-24 pb-10 px-page">
 
-          {/* WOLFx Signature 2rem Grid Background */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-20 z-0"
-            style={{
-              backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.25) 0.05rem, transparent 0.05rem), linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0.05rem, transparent 0.05rem)',
-              backgroundSize: '2rem 2rem',
-              backgroundPosition: 'center'
-            }}
+          {/* Interactive Minimalist Particle Canvas */}
+          <canvas 
+            ref={heroCanvasRef} 
+            className="absolute inset-0 pointer-events-none z-0 opacity-80"
           />
 
+          {/* The Faded Circle & Minimalist 3D Geometric Orbitals (Dead-Center) */}
+          <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none" style={{ perspective: '1000px' }}>
+            
+            {/* Outer Minimalist Orbital Ring */}
+            <div 
+              className="absolute w-[44vw] h-[44vw] rounded-full border border-accent-lime/10 pointer-events-none animate-[spin_40s_linear_infinite]"
+              style={{ borderStyle: 'dashed' }}
+            />
+
+            {/* Inner Minimalist Orbital Ring */}
+            <div 
+              className="absolute w-[32vw] h-[32vw] rounded-full border border-white/5 pointer-events-none animate-[spin_25s_linear_infinite_reverse]"
+            />
+
+            {/* Soft breathing aura */}
+            <div 
+              className="absolute w-[36vw] h-[36vw] rounded-full opacity-20 animate-pulse pointer-events-none"
+              style={{
+                background: 'radial-gradient(circle, rgba(137, 188, 48, 0.22) 0%, transparent 70%)',
+                animationDuration: '4s'
+              }}
+            />
+
+            {/* Central Faded Circle Glow */}
+            <div 
+              style={{ 
+                width: '22vw', 
+                height: '22vw', 
+                background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)', 
+                borderRadius: '9999px',
+              }} 
+            />
+          </div>
+
           {/* Top Status Bar */}
-          <div className="relative z-10 w-full flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div className="relative z-20 w-full flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_10px_#89bc30]" />
               <span className="font-mono text-xs uppercase tracking-widest text-white/90 font-bold">
@@ -663,59 +811,74 @@ export default function ServicesPage() {
 
             <div className="flex items-center gap-6 font-mono text-xs text-secondary-text">
               <span className="text-accent-light font-bold">EDITION 2026</span>
-              <span className="px-3.5 py-1 rounded-full border border-accent-lime/40 bg-accent-lime/10 text-accent-lime font-bold text-[11px] tracking-wider uppercase">
+              <span className="px-3.5 py-1 rounded-full border border-accent-lime/40 bg-accent-lime/10 text-accent-lime font-bold text-[11px] tracking-wider uppercase flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-ping" />
                 STUDIO ONLINE
               </span>
             </div>
           </div>
 
-          {/* Monumental WOLFx Headline */}
-          <div className="hero-content-wrap relative z-10 my-auto py-12 max-w-6xl will-change-transform">
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-9xl font-black uppercase text-white leading-[0.88] tracking-tighter mb-6">
-              A Creative <br />
-              <span className="text-accent-lime">Technology</span> Company
-            </h1>
-
-            <p className="font-sans text-xl sm:text-3xl text-accent-light font-light max-w-3xl mb-10 leading-snug">
-              Everything Generative AI, Deterministic Search & Spatial Architecture is our Playground.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <PremiumButton
-                onClick={() => {
-                  workingModelsRef.current?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-8 py-4"
+          {/* Center Monumental Typography with Smooth 3D Mouse Tracking */}
+          <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center w-full" style={{ perspective: '1200px' }}>
+            <div ref={heroTextRef} className="flex flex-col items-center text-center" style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}>
+              
+              <h1 
+                ref={heroMouseTrackerRef} 
+                className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center pointer-events-auto cursor-default" 
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <span className="font-mono text-xs uppercase tracking-widest flex items-center gap-3">
-                  EXPLORE WORKING MODELS
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <span className="text-[12vw] sm:text-[14vw] text-light-bg leading-[0.85] tracking-tighter block font-black drop-shadow-sm">
+                  OUR
                 </span>
-              </PremiumButton>
+                <span className="text-[12vw] sm:text-[14vw] text-accent-lime leading-[0.85] tracking-tighter block font-black drop-shadow-[0_0_35px_rgba(137,188,48,0.22)]">
+                  SERVICES
+                </span>
+              </h1>
 
-              <PremiumButton
-                variant="glass"
-                onClick={() => {
-                  deckRef.current?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-8 py-4"
-              >
-                <span className="font-mono text-xs uppercase tracking-widest">
-                  VIEW CAPABILITIES
-                </span>
-              </PremiumButton>
+              <p className="mt-8 font-sans text-base sm:text-xl text-accent-light/80 font-light max-w-2xl mx-auto leading-relaxed">
+                Everything Generative AI, Deterministic Search & Spatial Architecture is our Playground.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4 pointer-events-auto">
+                <PremiumButton
+                  onClick={() => {
+                    deckRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-4"
+                >
+                  <span className="font-mono text-xs uppercase tracking-widest flex items-center gap-3">
+                    EXPLORE CAPABILITIES
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </PremiumButton>
+
+                <PremiumButton
+                  variant="glass"
+                  onClick={() => {
+                    workingModelsRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-4"
+                >
+                  <span className="font-mono text-xs uppercase tracking-widest">
+                    WORKING MODELS
+                  </span>
+                </PremiumButton>
+              </div>
+
             </div>
           </div>
 
-          {/* Bottom Coordinates */}
-          <div className="relative z-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-secondary-text">
+          {/* Bottom Coordinates & Scroll Prompt */}
+          <div className="relative z-20 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-secondary-text">
             <div className="flex items-center gap-2">
               <span className="text-accent-lime">01</span>
               <span className="text-white/40">•</span>
               <span>SYSTEM ARCHITECTURE & VECTOR RETRIEVAL</span>
             </div>
-            <div className="text-white/40">
-              SCROLL TO EXPLORE ARCHITECTURAL NARRATIVE ↓
+            <div className="text-white/40 flex items-center gap-2">
+              <span>SCROLL TO EXPLORE ARCHITECTURAL NARRATIVE</span>
+              <span>↓</span>
             </div>
           </div>
 
