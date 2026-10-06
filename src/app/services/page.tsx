@@ -800,23 +800,6 @@ export default function ServicesPage() {
             />
           </div>
 
-          {/* Top Status Bar */}
-          <div className="relative z-20 w-full flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
-            <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_10px_#89bc30]" />
-              <span className="font-mono text-xs uppercase tracking-widest text-white/90 font-bold">
-                VEREEN DIGITAL • ARCHITECTURAL CAPABILITIES
-              </span>
-            </div>
-
-            <div className="flex items-center gap-6 font-mono text-xs text-secondary-text">
-              <span className="text-accent-light font-bold">EDITION 2026</span>
-              <span className="px-3.5 py-1 rounded-full border border-accent-lime/40 bg-accent-lime/10 text-accent-lime font-bold text-[11px] tracking-wider uppercase flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-ping" />
-                STUDIO ONLINE
-              </span>
-            </div>
-          </div>
 
           {/* Center Monumental Typography with Smooth 3D Mouse Tracking */}
           <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center w-full" style={{ perspective: '1200px' }}>
@@ -902,9 +885,9 @@ export default function ServicesPage() {
 
             {/* Left Column: WOLFx Sticky Story Title (story-1) with ScrollTrigger breathing */}
             <div className="lg:col-span-5 lg:sticky lg:top-32">
-              <span className="font-mono text-xs text-accent-lime uppercase tracking-widest font-bold mb-4 block">
-                02 • THE ARCHITECTURAL THESIS
-              </span>
+              <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-6 font-bold uppercase">
+                02 — THE ARCHITECTURAL THESIS
+              </h2>
               <h2 className="story-sticky-title font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white leading-[0.9] tracking-tighter transition-colors will-change-transform">
                 In this rapidly moving generative space, we are...
               </h2>
@@ -916,7 +899,7 @@ export default function ServicesPage() {
               {/* Story 1 */}
               <div className="border-b border-white/10 pb-12 group">
                 <span className="font-mono text-xs text-accent-lime font-bold uppercase tracking-widest mb-3 block">
-                  [ 01 • ARTISTRY & AUTHORITY ]
+                  01 — ARTISTRY & AUTHORITY
                 </span>
                 <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight mb-4 group-hover:text-accent-lime transition-colors">
                   Merging Artistry with Algorithmic Authority.
@@ -933,7 +916,7 @@ export default function ServicesPage() {
               {/* Story 2 */}
               <div className="border-b border-white/10 pb-12 group">
                 <span className="font-mono text-xs text-accent-lime font-bold uppercase tracking-widest mb-3 block">
-                  [ 02 • IMMERSIVE CRAFT ]
+                  02 — IMMERSIVE CRAFT
                 </span>
                 <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight mb-4 group-hover:text-accent-lime transition-colors">
                   Crafting Unique Digital Journeys.
@@ -950,7 +933,7 @@ export default function ServicesPage() {
               {/* Story 3 */}
               <div className="group">
                 <span className="font-mono text-xs text-accent-lime font-bold uppercase tracking-widest mb-3 block">
-                  [ 03 • BOUNDARY DESTRUCTION ]
+                  03 — BOUNDARY DESTRUCTION
                 </span>
                 <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight mb-4 group-hover:text-accent-lime transition-colors">
                   Pushing Beyond Conventional Search.
@@ -1009,40 +992,6 @@ export default function ServicesPage() {
             }}
           />
 
-          {/* Top Masthead */}
-          <div className="relative z-20 px-page pt-6 pb-4 flex flex-col gap-3 border-b border-white/10 bg-[#07080a]/90 backdrop-blur-md">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_10px_#89bc30]" />
-                <span className="font-mono text-xs uppercase tracking-widest text-white/90 font-bold">
-                  04 • CORE ARCHITECTURAL SOLUTIONS
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                {solutionsData.map((item, idx) => (
-                  <button
-                    key={item.num}
-                    onClick={() => {
-                      setActiveDeckCard(idx);
-                      const st = ScrollTrigger.getById('deck-stream');
-                      if (st) {
-                        const targetProgress = idx / (solutionsData.length - 1);
-                        const targetScroll = st.start + targetProgress * (st.end - st.start);
-                        window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-                      }
-                    }}
-                    className={`px-3 py-1 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer ${activeDeckCard === idx
-                      ? 'bg-accent-lime text-dark-text font-bold shadow-[0_0_15px_rgba(137,188,48,0.4)]'
-                      : 'bg-white/[0.04] text-white/50 hover:text-white border border-white/5'
-                      }`}
-                  >
-                    {item.num} • {item.category}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
 
           {/* Center Horizontal Track */}
           <div className="relative z-10 w-full my-auto overflow-visible py-3 sm:py-5">
@@ -1068,40 +1017,21 @@ export default function ServicesPage() {
                       className="absolute -top-24 -right-24 w-80 h-80 rounded-full blur-[110px] pointer-events-none opacity-20 bg-accent-lime"
                     />
 
-                    {/* Top Bar: Coordinates + WOLFx Animated Ticker Reel */}
-                    <div className="shrink-0 relative z-10 pb-3 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
+                    {/* Top Bar: Clean Architectural Header */}
+                    <div className="shrink-0 relative z-10 pb-4 border-b border-white/10 flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
                         <span className="font-mono text-2xl sm:text-3xl font-black text-accent-lime">
                           {service.num}
                         </span>
-                        <span className="px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 font-mono text-xs font-bold uppercase tracking-wider text-accent-light">
+                        <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-widest text-white">
                           {service.category}
                         </span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse" />
                       </div>
 
-                      <div className="flex items-center gap-3">
-                        <span className="hidden sm:inline-block font-mono text-[11px] text-white/50 bg-white/[0.04] border border-white/10 px-3 py-1 rounded-full">
-                          {service.specId}
-                        </span>
-
-                        {/* WOLFx Vertical Reel */}
-                        <div className="h-8 overflow-hidden relative max-w-xs px-3 py-1 rounded-full bg-white/[0.03] border border-white/10">
-                          <div
-                            className="transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                            style={{ transform: `translateY(-${capabilitySlide * 32}px)` }}
-                          >
-                            {service.slides.map((slide, sIdx) => (
-                              <div
-                                key={sIdx}
-                                className="h-8 flex items-center font-mono text-xs text-accent-lime font-bold truncate"
-                              >
-                                <span className="mr-2">›</span>
-                                {slide}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                      <div className="flex items-center gap-2.5 font-mono text-xs text-white/40 tracking-wider">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
+                        <span className="hidden sm:inline">ARCHITECTURAL SPEC 0{index + 1}</span>
+                        <span className="sm:hidden">SPEC 0{index + 1}</span>
                       </div>
                     </div>
 
@@ -1213,7 +1143,7 @@ export default function ServicesPage() {
 
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#090A0C] text-accent-light font-mono text-xs uppercase tracking-widest font-bold mb-10 shadow-md">
               <Sparkles size={13} className="text-accent-lime" />
-              <span>05 • THE ARCHITECTURAL PHILOSOPHY</span>
+              <span>05 — THE ARCHITECTURAL PHILOSOPHY</span>
             </div>
 
             {/* Word-by-Word ScrollTrigger Illumination Scrub */}
@@ -1299,12 +1229,9 @@ export default function ServicesPage() {
 
             {/* Left Column: Kept identical as requested ("same to same as it is") */}
             <div className="lg:col-span-5">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_10px_#89bc30]" />
-                <span className="font-mono text-xs text-accent-lime uppercase tracking-widest font-bold">
-                  07 • ARCHITECTURAL PORTFOLIO
-                </span>
-              </div>
+              <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-6 font-bold uppercase">
+                07 — ARCHITECTURAL PORTFOLIO
+              </h2>
 
               <h2 className="font-display text-4xl sm:text-6xl font-black uppercase text-white leading-tight mb-6">
                 Our Service <br />
@@ -1421,7 +1348,7 @@ export default function ServicesPage() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#090A0C] text-accent-light font-mono text-xs uppercase tracking-widest font-bold mb-4 shadow-sm">
                   <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse" />
-                  <span>08 • ENGAGEMENT ARCHITECTURE</span>
+                  <span>08 — ENGAGEMENT ARCHITECTURE</span>
                 </div>
                 <h2 className="font-display text-4xl sm:text-7xl font-black uppercase text-[#090A0C] leading-[0.9] tracking-tighter">
                   Working Models, <br />
@@ -1448,7 +1375,7 @@ export default function ServicesPage() {
                   <div className="lg:col-span-4">
                     <div className="font-mono text-xs text-[#3f5d13] font-bold uppercase tracking-wider mb-1.5 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
-                      <span>0{mIdx + 1} • {model.type}</span>
+                      <span>0{mIdx + 1} — {model.type}</span>
                     </div>
                     <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-[#090A0C] group-hover:text-black transition-colors">
                       {model.title}
@@ -1492,9 +1419,9 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto">
 
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-mono text-xs text-accent-lime uppercase tracking-widest font-bold mb-3 block">
-                09 • GLOBAL DOMAINS
-              </span>
+              <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-4 font-bold uppercase">
+                09 — GLOBAL DOMAINS
+              </h2>
               <h2 className="font-display text-4xl sm:text-6xl font-bold uppercase text-white mb-4">
                 Industries We Empower
               </h2>
