@@ -34,44 +34,13 @@ export const ServiceDropdownCard: React.FC<ServiceDropdownCardProps> = ({ onSele
                 }`}
             >
               <span className="text-[14.5px] tracking-tight">{service.name}</span>
-              {isActive ? (
-                <span className="w-2.5 h-2.5 rounded-full bg-[#698c25] flex-shrink-0" />
-              ) : (
-                <span className="text-zinc-400 text-sm font-normal group-hover:text-black group-hover:translate-x-0.5 transition-transform flex-shrink-0">
-                  →
-                </span>
+              {isActive && (
+                <span className="w-2 h-2 rounded-full bg-[#698c25] flex-shrink-0" />
               )}
             </a>
           );
         })}
       </div>
-
-      {/* Subtle Divider */}
-      <div className="h-px bg-zinc-200/80 my-1.5 mx-1" />
-
-      {/* Overview Link */}
-      {(() => {
-        const isOverviewActive = pathname === '/services';
-        return (
-          <a
-            href="/services"
-            onClick={onSelect}
-            className={`flex items-center justify-between px-3.5 py-2 rounded-xl transition-all duration-200 group ${isOverviewActive
-                ? 'bg-[#eef5e0] text-[#3f5d13] font-bold'
-                : 'text-zinc-500 hover:text-zinc-950 hover:bg-black/[0.04] font-medium'
-              }`}
-          >
-            <span className="text-[13px] tracking-tight">All Services Overview</span>
-            {isOverviewActive ? (
-              <span className="w-2.5 h-2.5 rounded-full bg-[#698c25] flex-shrink-0" />
-            ) : (
-              <span className="text-zinc-400 text-xs font-normal group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform flex-shrink-0">
-                ↗
-              </span>
-            )}
-          </a>
-        );
-      })()}
     </div>
   );
 };
