@@ -5,300 +5,268 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  Sparkles,
-  Cpu,
-  Network,
-  ShieldCheck,
-  Terminal,
   ArrowUpRight,
   ArrowRight,
-  Layers,
-  Database,
-  Activity,
-  Search,
-  CheckCircle2,
-  Code2,
-  Sliders,
-  Zap,
-  ChevronRight,
-  Maximize2,
-  RefreshCw,
-  Clock,
-  Shield,
-  Send,
-  Boxes,
-  Compass,
-  FileCheck,
-  Copy,
   Check,
-  Radio,
-  Eye
+  Search,
+  Zap,
+  Share2,
+  MessageSquare,
+  Globe,
+  Sparkles,
+  MoveDown
 } from 'lucide-react';
 import Navigation from '../../components/Navigation';
 import Footer from '../../sections/Footer';
 import CustomCursor from '../../components/CustomCursor';
 import { PremiumButton } from '../../components/PremiumButton';
-import EchoText from '../../components/EchoText';
-import FAQSection from '../../sections/FAQSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
 /* ================================================================= */
-/* WOLFX-ALIGNED ENTERPRISE DATA SPECIFICATIONS                      */
+/* 5 AUTONOMOUS DISCIPLINES SPECIFICATION (EDITORIAL HIGH-END DNA)   */
 /* ================================================================= */
 
-const solutionsData = [
-  {
-    num: "01",
-    category: "RETRIEVAL",
-    specId: "SPEC: GEO-256T",
-    title: "Generative Engine Optimization",
-    subtitle: "Brand Supremacy Inside LLM Answers",
-    desc: "We engineer semantic vector embeddings and structured schemas so AI models cite your brand as the canonical authority.",
-    slides: [
-      "Generative Engine SEO (GEO)",
-      "Perplexity Sonar Protocol",
-      "Wikidata Entity Reconciliation",
-      "Semantic Vector Chunking"
-    ],
-    points: [
-      "256-Token Semantic Chunking",
-      "Vector Distance Calibration",
-      "Perplexity Canonical Citations",
-      "Multi-Turn Prompt Ingestion"
-    ],
-    tech: ["Schema.org", "Wikidata SPARQL", "Vector RAG"],
-    accentColor: "#89bc30"
-  },
-  {
-    num: "02",
-    category: "TAXONOMY",
-    specId: "SPEC: KGD-QNODE",
-    title: "Knowledge Graph Ontologies",
-    subtitle: "Eradicating Model Hallucinations",
-    desc: "Deterministic JSON-LD @graph frameworks anchoring your enterprise into global machine ontologies with zero semantic drift.",
-    slides: [
-      "Zero-Drift Graph Ontology",
-      "Google Knowledge Panel Sync",
-      "Bing Entity Index Reconciliation",
-      "Cryptographic Entity Claims"
-    ],
-    points: [
-      "Wikidata Q-Node Binding",
-      "Google Knowledge Panel Sync",
-      "Cryptographic Entity Claims",
-      "Copilot Index Verification"
-    ],
-    tech: ["Wikidata SPARQL", "Google KG API", "JSON-LD @graph"],
-    accentColor: "#89bc30"
-  },
-  {
-    num: "03",
-    category: "PERFORMANCE",
-    specId: "SPEC: WGL-120FPS",
-    title: "Kinetic & WebGL Spatial Engines",
-    subtitle: "120 FPS Living Spatial Interfaces",
-    desc: "Living digital universes built on hardware-accelerated WebGL shaders, fluid Lenis momentum, and sub-50ms edge rendering.",
-    slides: [
-      "120 FPS WebGL Shaders",
-      "Lenis Momentum Physics",
-      "Headless Next.js 16 Edge",
-      "Spatial Typography Fields"
-    ],
-    points: [
-      "Custom WebGL GLSL Shaders",
-      "120 FPS Momentum Physics",
-      "Headless Next.js Edge SSR",
-      "Dynamic Ambient Glow Lighting"
-    ],
-    tech: ["Three.js WebGL", "Lenis Physics", "Next.js Edge"],
-    accentColor: "#89bc30"
-  },
-  {
-    num: "04",
-    category: "ATTRIBUTION",
-    specId: "SPEC: ARR-ATTRIB",
-    title: "Conversational Revenue Attribution",
-    subtitle: "Closed-Loop Generative Search ARR",
-    desc: "Direct telemetry connecting conversational AI search citations directly to closed-won enterprise pipeline and verified ARR.",
-    slides: [
-      "Multi-Touch LLM Attribution",
-      "Conversational Lead Telemetry",
-      "Direct Closed-Won ARR Sync",
-      "Executive Pipeline Dashboards"
-    ],
-    points: [
-      "AI Citation Referral Tracking",
-      "Closed-Won ARR Pipeline Sync",
-      "Bi-Directional CRM Telemetry",
-      "Boardroom Attribution Dashboards"
-    ],
-    tech: ["Attribution APIs", "Salesforce Sync", "ClickHouse"],
-    accentColor: "#89bc30"
-  }
-];
+interface ServiceDossier {
+  num: string;
+  id: string;
+  name: string;
+  category: string;
+  badge: string;
+  tagline: string;
+  href: string;
+  metric: string;
+  specId: string;
+  image: string;
+  statNumber: string;
+  statLabel: string;
+  deliverables: string[];
+  theme: 'dark' | 'cream';
+  bgClass: string;
+  textClass: string;
+  accentColor: string;
+  icon: React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>;
+}
 
-const serviceOfferings = [
+const SERVICES_DOSSIER: ServiceDossier[] = [
   {
     num: "01",
-    title: "Generative Engine Optimization (GEO)",
-    subtitle: "LLM Search Positioning & Vector Retrieval",
-    desc: "We engineer answer-first 256-token semantic blocks and vector embeddings that force Perplexity Sonar, OpenAI SearchGPT, Claude, and Google AI to cite your brand as the primary authority.",
-    deliverables: ["256-Token Semantic Chunking", "Cosine Distance Calibration", "Perplexity Sonar Canonical Anchors", "Multi-Turn Prompt Ingestion"]
+    id: "ai-seo",
+    name: "AI SEO",
+    category: "01 — GEO & VECTOR RETRIEVAL",
+    badge: "LLM CITATION RETRIEVAL",
+    tagline: "Engineered vector embeddings and structured schemas that force Perplexity, SearchGPT, and Claude to cite your enterprise as canonical truth.",
+    href: "/services/ai-seo",
+    metric: "100% LLM CITATION RETRIEVAL",
+    specId: "SPEC: GEO-256T",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
+    statNumber: "100%",
+    statLabel: "Canonical Citation Retrieval",
+    deliverables: [
+      "256-Token Semantic Chunking",
+      "Perplexity Sonar Protocol",
+      "Wikidata Q-Node Reconciliation",
+      "Zero-Drift JSON-LD @graph"
+    ],
+    theme: 'dark',
+    bgClass: 'bg-[#090A0C]',
+    textClass: 'text-white',
+    accentColor: '#89bc30',
+    icon: Search
   },
   {
     num: "02",
-    title: "Knowledge Graph Disambiguation (KGD)",
-    subtitle: "Deterministic Entity Ontologies & Graph Truth",
-    desc: "Eradicate model hallucinations and brand misattribution by anchoring your enterprise, leadership, and products into Wikidata and the Google Knowledge Graph with zero semantic drift.",
-    deliverables: ["Wikidata sameAs Claim Reconciliation", "Google Knowledge Panel Claim", "Multi-Layered JSON-LD @graph", "Bing Enterprise Index Sync"]
+    id: "google-ads",
+    name: "Google Ads",
+    category: "02 — HIGH-INTENT ACQUISITION",
+    badge: "ALGORITHMIC BIDDING",
+    tagline: "Hyper-segmented search ad architectures engineered to isolate commercial intent and feed Google AI with verified first-party CRM pipeline data.",
+    href: "/services/google-ads",
+    metric: "30-50% LOWER CPCS",
+    specId: "SPEC: GADS-ALPHA",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
+    statNumber: "10/10",
+    statLabel: "Quality Score Benchmark",
+    deliverables: [
+      "Single-Theme Ad Grouping",
+      "First-Party Conversion Signals",
+      "Negative Keyword Defense Shield",
+      "Sub-50ms Landing Page Speeds"
+    ],
+    theme: 'cream',
+    bgClass: 'bg-accent-light',
+    textClass: 'text-[#090A0C]',
+    accentColor: '#89bc30',
+    icon: Zap
   },
   {
     num: "03",
-    title: "Kinetic & WebGL Digital Ecosystems",
-    subtitle: "120 FPS Avant-Garde Spatial Experiences",
-    desc: "Bespoke digital flagships engineered with custom WebGL shaders, normalized Lenis momentum scrolling, and kinetic typography that transform enterprise prospects into brand evangelists.",
-    deliverables: ["Hardware-Accelerated WebGL", "Sub-50ms First Input Delay", "Headless Next.js Edge SSR", "Dynamic Dark Ambient Lighting"]
+    id: "meta-ads",
+    name: "Meta Ads",
+    category: "03 — PAID SOCIAL SCALING",
+    badge: "CREATIVE AS TARGETING",
+    tagline: "A scientific testing framework that screens 10-20 creative hypotheses weekly, backed by server-to-server Conversions API and Advantage+ broad scaling.",
+    href: "/services/meta-ads",
+    metric: "9.0+ EVENT MATCH QUALITY",
+    specId: "SPEC: META-CAPI",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop",
+    statNumber: "9.2/10",
+    statLabel: "CAPI Event Match Quality",
+    deliverables: [
+      "Dynamic Creative Testing (DCT)",
+      "Zero iOS Signal Loss CAPI Gateway",
+      "Broad Audience Liquidity Structure",
+      "Interactive Presell Advertorials"
+    ],
+    theme: 'dark',
+    bgClass: 'bg-[#090A0C]',
+    textClass: 'text-white',
+    accentColor: '#89bc30',
+    icon: Share2
   },
   {
     num: "04",
-    title: "Autonomous AI Operational Systems",
-    subtitle: "Self-Healing Multi-Agent Pipelines",
-    desc: "Deploying autonomous AI agents that monitor model citation changes, audit competitive generative share-of-voice 24/7, and automatically refresh outdated schema metadata.",
-    deliverables: ["24/7 Citation Radar Scans", "Automated Hallucination Defense", "Continuous Vector Re-indexing", "Real-Time Drift Alerts"]
+    id: "chatgpt-ads",
+    name: "ChatGPT Ads",
+    category: "04 — CONVERSATIONAL INGESTION",
+    badge: "EMERGING AI MEDIA",
+    tagline: "Pioneer native conversational ad formats inside OpenAI SearchGPT. Deploy custom enterprise GPT agents that diagnose prospect pain points and book sales calls 24/7.",
+    href: "/services/chatgpt-ads",
+    metric: "FIRST-MOVER BRAND MOATS",
+    specId: "SPEC: CHAT-NATIVE",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2565&auto=format&fit=crop",
+    statNumber: "24/7",
+    statLabel: "Autonomous Conversational Pipeline",
+    deliverables: [
+      "SearchGPT Sponsored Retrievals",
+      "Branded Enterprise GPT Agents",
+      "Buyer Prompt Journey Mapping",
+      "Conversational Pipeline Attribution"
+    ],
+    theme: 'cream',
+    bgClass: 'bg-accent-light',
+    textClass: 'text-[#090A0C]',
+    accentColor: '#89bc30',
+    icon: MessageSquare
   },
   {
     num: "05",
-    title: "Global Cloud & Sub-50ms Edge Infrastructure",
-    subtitle: "Multi-Region V8 Isolates & Streaming SSR",
-    desc: "Enterprise infrastructure deployed across 300+ global edge points of presence with streaming server-side rendering, sub-30ms TTFB, and 100/100 Core Web Vitals guarantees.",
-    deliverables: ["Global Edge CDN Routing", "V8 Isolate Hydration", "Automated CI/CD Pipelines", "SOC2 Enterprise Compliance"]
-  },
-  {
-    num: "06",
-    title: "Conversational Revenue Attribution",
-    subtitle: "Closed-Loop Generative Search ARR",
-    desc: "Direct attribution connecting conversational AI citations to closed-won deals. Know exactly which prompts, citations, and models generated enterprise pipeline.",
-    deliverables: ["AI Referral Intent Scoring", "Salesforce & HubSpot Bi-Directional Sync", "Sales Cycle Acceleration Analytics", "Audited Boardroom Telemetry"]
+    id: "web-development",
+    name: "Web Development",
+    category: "05 — 120 FPS SPATIAL WEB",
+    badge: "SUB-50MS EDGE SSR",
+    tagline: "Living digital flagships built on hardware-accelerated WebGL GLSL shaders, normalized Lenis momentum, and streaming SSR on multi-region V8 isolates.",
+    href: "/services/web-development",
+    metric: "SUB-50MS GLOBAL TTFB",
+    specId: "SPEC: WGL-120FPS",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2655&auto=format&fit=crop",
+    statNumber: "120 FPS",
+    statLabel: "Normalized Lenis Spatial Physics",
+    deliverables: [
+      "Custom WebGL 3D Spatial Shaders",
+      "Headless Next.js 16 Edge Architecture",
+      "120 FPS Normalized Lenis Physics",
+      "100/100 Core Web Vitals Guaranteed"
+    ],
+    theme: 'dark',
+    bgClass: 'bg-[#090A0C]',
+    textClass: 'text-white',
+    accentColor: '#89bc30',
+    icon: Globe
   }
 ];
 
-const workingModels = [
+const WORKING_MODELS = [
   {
-    title: "Project Basis",
+    num: "01",
     type: "FIXED SCOPE",
-    desc: "The best approach for a one-time deployment, where the scope is well defined and the deliverables are clear. A fixed-price model where the system is delivered within a specific timeline and SLA.",
+    title: "Project Basis",
     timeline: "4 — 8 WEEKS",
-    idealFor: "Core WebGL Builds, Initial GEO Deployment, Knowledge Graph Setup"
+    desc: "Fixed-price end-to-end architecture deployment with well-defined deliverables and guaranteed SLAs.",
+    idealFor: "Core WebGL Builds, Initial GEO Setup, Flagship Launches"
   },
   {
-    title: "Monthly Retainer",
+    num: "02",
     type: "CONTINUOUS ENGINEERING",
-    desc: "Ideal for ongoing systems that require continuous optimization, knowledge graph synchronization, dynamic vector chunking, and 24/7 AI hallucination defense as new frontier models launch.",
-    timeline: "MONTH-TO-MONTH / ANNUAL",
-    idealFor: "Ongoing AI Search Supremacy, Continuous Performance Tuning, Growth Sprints"
+    title: "Monthly Retainer",
+    timeline: "MONTH-TO-MONTH",
+    desc: "Dedicated ongoing optimization, dynamic algorithmic tuning, and continuous creative testing.",
+    idealFor: "AI Search Supremacy, Paid Media Scaling, Performance Tuning"
   },
   {
-    title: "Consultation & Audit",
+    num: "03",
     type: "STRATEGIC DIAGNOSTIC",
-    desc: "We provide comprehensive algorithmic audits to help executive leadership make informed decisions about their generative AI search presence, vector distances, and system architecture.",
+    title: "Consultation & Audit",
     timeline: "2 WEEKS",
-    idealFor: "Pre-Launch Audits, Competitive Displacement Scans, Architecture Reviews"
+    desc: "Comprehensive diagnostic scan covering vector distances, ad funnels, and infrastructure bottlenecks.",
+    idealFor: "Pre-Launch Audits, Competitor Scans, Executive Reviews"
   },
   {
-    title: "White Labeling",
-    type: "AGENCY PARTNERSHIP",
-    desc: "If you are an enterprise agency or elite design studio, we work as your stealth technology partner, providing deep AI, WebGL, and edge engineering expertise under your brand name.",
-    timeline: "FLEXIBLE PARTNERSHIP",
-    idealFor: "Creative Agencies, Design Consultancies, Enterprise System Integrators"
-  },
-  {
-    title: "Dedicated AI Engineering Pod",
+    num: "04",
     type: "EMBEDDED SQUAD",
-    desc: "We deploy a dedicated squad of edge engineers, schema architects, and WebGL developers embedded directly into your product roadmap to accelerate high-stakes digital initiatives.",
-    timeline: "QUARTERLY / LONG-TERM",
-    idealFor: "Enterprise Scaleups, Fast-Moving Tech Unicorns, Global Enterprises"
+    title: "Dedicated Pod",
+    timeline: "QUARTERLY / ANNUAL",
+    desc: "Dedicated squad of schema architects, creative engineers, and media buyers embedded into your roadmap.",
+    idealFor: "Enterprise Scaleups, Fast-Moving Tech Unicorns, Global Brands"
   }
 ];
-
-const industries = [
-  "Enterprise SaaS",
-  "FinTech & WealthTech",
-  "AI & DeepTech",
-  "Healthcare & Life Sciences",
-  "Global E-Commerce",
-  "Luxury & Hospitality",
-  "Defense & Aerospace",
-  "LegalTech",
-  "Real Estate & PropTech",
-  "Media & Entertainment"
-];
-
-const manifestoWords = "We are your architectural technology partners, committed to engineering digital ecosystems and AI search dominance that make a lasting impact on enterprise market share while ensuring your revenue goals become reality.".split(" ");
 
 export default function ServicesPage() {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const storyRef = useRef<HTMLDivElement>(null);
-  const deckRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const manifestoRef = useRef<HTMLDivElement>(null);
-  const marqueeSectionRef = useRef<HTMLDivElement>(null);
-  const offeringsRef = useRef<HTMLDivElement>(null);
-  const workingModelsRef = useRef<HTMLDivElement>(null);
-  const industriesRef = useRef<HTMLDivElement>(null);
-  const inquiryRef = useRef<HTMLDivElement>(null);
-
-  const [activeDeckCard, setActiveDeckCard] = useState<number>(0);
-  const [activeOfferingIdx, setActiveOfferingIdx] = useState<number>(0);
-  const [capabilitySlide, setCapabilitySlide] = useState<number>(0);
-
-  /* Hero Section Refs for Particle Canvas & 3D Tilt Tracking */
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
-  const heroMouseTrackerRef = useRef<HTMLHeadingElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
+  const heroMouseTrackerRef = useRef<HTMLHeadingElement>(null);
 
-  /* Conversational Inquiry Form State (Same as Home Page) */
+  /* Dimensional Clip-Path Showcase Refs */
+  const showcaseContainerRef = useRef<HTMLDivElement>(null);
+  const scrollTriggerInstanceRef = useRef<ScrollTrigger | null>(null);
+
+  const transitionSectionRef = useRef<HTMLDivElement>(null);
+  const workingModelsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const [activePanelIdx, setActivePanelIdx] = useState<number>(0);
+
+  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>("");
   const [companyName, setCompanyName] = useState<string>("");
   const [userEmail, setUserEmail] = useState<string>("");
-  const [selectedService, setSelectedService] = useState<string>("Generative Engine Optimization (GEO)");
-  const [selectedModel, setSelectedModel] = useState<string>("Project Basis");
+  const [selectedService, setSelectedService] = useState<string>("All Services Overview");
   const [selectedBudget, setSelectedBudget] = useState<string>("$50k - $100k");
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
   /* ----------------------------------------------------------------- */
-  /* 1. LENIS SMOOTH SCROLL INITIALIZATION                             */
+  /* 1. LENIS SMOOTH MOMENTUM SCROLLING                                */
   /* ----------------------------------------------------------------- */
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
+      wheelMultiplier: 0.9,
       touchMultiplier: 1.5,
     });
 
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    const rafId = requestAnimationFrame(raf);
+
     lenis.on('scroll', ScrollTrigger.update);
-
-    const updateTicker = (time: number) => {
-      lenis.raf(time * 1000);
-    };
-
-    gsap.ticker.add(updateTicker);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
 
     return () => {
-      gsap.ticker.remove(updateTicker);
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
 
-
-
   /* ----------------------------------------------------------------- */
-  /* 2. SERVICES HERO INTERACTIVE MINIMALIST PARTICLE CANVAS           */
+  /* 2. HERO INTERACTIVE PARTICLE CANVAS                               */
   /* ----------------------------------------------------------------- */
   useEffect(() => {
     const canvas = heroCanvasRef.current;
@@ -317,33 +285,39 @@ export default function ServicesPage() {
     };
     window.addEventListener('resize', handleResize);
 
-    const particleCount = 40;
-    const particles = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      size: Math.random() * 2 + 1,
-      alpha: Math.random() * 0.35 + 0.15,
-      color: Math.random() > 0.45 ? '#89bc30' : '#F0EFEA',
-    }));
+    const particles: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      alpha: number;
+      color: string;
+    }> = [];
 
-    let mouseX = width / 2;
-    let mouseY = height / 2;
-    let targetX = width / 2;
-    let targetY = height / 2;
+    const pColors = ['#89bc30', '#e2f0ca', '#ffffff'];
+    for (let i = 0; i < 45; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        size: Math.random() * 2 + 0.8,
+        alpha: Math.random() * 0.45 + 0.15,
+        color: pColors[Math.floor(Math.random() * pColors.length)]
+      });
+    }
 
+    let mouseX = -1000;
+    let mouseY = -1000;
     const onPointerMove = (e: MouseEvent) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     };
     window.addEventListener('mousemove', onPointerMove, { passive: true });
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
-
-      mouseX += (targetX - mouseX) * 0.05;
-      mouseY += (targetY - mouseY) * 0.05;
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -358,10 +332,10 @@ export default function ServicesPage() {
         const dx = p.x - mouseX;
         const dy = p.y - mouseY;
         const dist = Math.hypot(dx, dy);
-        if (dist < 160 && dist > 0) {
-          const force = (160 - dist) / 160;
-          p.x += (dx / dist) * force * 1.4;
-          p.y += (dy / dist) * force * 1.4;
+        if (dist < 150 && dist > 0) {
+          const force = (150 - dist) / 150;
+          p.x += (dx / dist) * force * 1.5;
+          p.y += (dy / dist) * force * 1.5;
         }
 
         ctx.beginPath();
@@ -386,7 +360,7 @@ export default function ServicesPage() {
   }, []);
 
   /* ----------------------------------------------------------------- */
-  /* 2B. HERO SMOOTH 3D MOUSE TRACKING TILT                            */
+  /* 2B. HERO 3D MOUSE TRACKING TILT                                   */
   /* ----------------------------------------------------------------- */
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -398,8 +372,8 @@ export default function ServicesPage() {
       gsap.to(heroMouseTrackerRef.current, {
         rotateY: nx * 9,
         rotateX: -ny * 9,
-        x: nx * 22,
-        y: ny * 14,
+        x: nx * 20,
+        y: ny * 12,
         duration: 0.7,
         ease: 'power2.out',
         overwrite: 'auto'
@@ -411,268 +385,86 @@ export default function ServicesPage() {
   }, []);
 
   /* ----------------------------------------------------------------- */
-  /* 3. WOLFX AUTO-CYCLING CAPABILITY TICKER TIMER                     */
-  /* ----------------------------------------------------------------- */
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCapabilitySlide(prev => (prev + 1) % 4);
-    }, 2800);
-    return () => clearInterval(timer);
-  }, []);
-
-  /* ----------------------------------------------------------------- */
-  /* 4. PINNED HORIZONTAL SOLUTIONS STREAM (WOLFX.IO DNA)              */
+  /* 3. PINNED 5-LAYER DIMENSIONAL CLIP-PATH PARALLAX WIPES            */
   /* ----------------------------------------------------------------- */
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const track = trackRef.current;
-      const section = deckRef.current;
-      const cards = gsap.utils.toArray<HTMLElement>('.wolfx-solution-card');
-      if (!track || !section || !cards.length) return;
+      const container = showcaseContainerRef.current;
+      const panels = gsap.utils.toArray<HTMLElement>('.service-depth-panel');
+      if (!container || !panels.length) return;
 
-      const getScrollAmount = () => track.scrollWidth - window.innerWidth + 140;
+      const totalPanels = panels.length;
 
-      ScrollTrigger.create({
-        id: 'deck-stream',
-        trigger: section,
-        start: 'top top',
-        end: () => `+=${getScrollAmount() * 1.4}`,
-        pin: true,
-        scrub: 1.2,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        animation: gsap.to(track, {
-          x: () => -getScrollAmount(),
-          ease: 'none'
-        }),
-        onUpdate: (self) => {
-          /* Wolfx velocity-based skew physics */
-          const velocity = self.getVelocity() / -280;
-          const clampedSkew = Math.max(-8, Math.min(8, velocity));
-          gsap.to(cards, {
-            skewX: clampedSkew,
-            duration: 0.15,
-            ease: 'power1.out',
-            overwrite: 'auto'
-          });
-
-          const progress = self.progress;
-          const activeIdx = Math.min(
-            cards.length - 1,
-            Math.floor(progress * cards.length + 0.15)
-          );
-          setActiveDeckCard(activeIdx);
-        },
-        onScrubComplete: () => {
-          gsap.to(cards, {
-            skewX: 0,
-            duration: 0.5,
-            ease: 'power3.out'
-          });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: `+=${totalPanels * 120}%`, // 5 dynamic scroll layers
+          scrub: 1.1,
+          pin: true,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const currentIdx = Math.min(
+              Math.floor(self.progress * totalPanels),
+              totalPanels - 1
+            );
+            setActivePanelIdx(currentIdx);
+          }
         }
       });
 
-    }, containerRef.current || undefined);
+      scrollTriggerInstanceRef.current = tl.scrollTrigger || null;
 
-    return () => ctx.revert();
-  }, []);
+      panels.forEach((panel, i) => {
+        if (i === 0) return; // First layer is visible by default
 
-  /* ----------------------------------------------------------------- */
-  /* 5. FULL-PAGE GSAP SCROLL-TRIGGERED CONTINUOUS ANIMATIONS          */
-  /* ----------------------------------------------------------------- */
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+        const content = panel.querySelector('.panel-inner-content');
+        const prevPanel = panels[i - 1];
 
-      /* A. Hero Parallax Drift */
-      if (heroRef.current) {
-        gsap.to('.hero-content-wrap', {
-          yPercent: 16,
-          opacity: 0.4,
+        // 1. Wipe current panel up from bottom line
+        tl.fromTo(panel,
+          { clipPath: 'inset(100% 0% 0% 0%)' },
+          { clipPath: 'inset(0% 0% 0% 0%)', ease: 'power2.inOut', duration: 1 }
+        )
+        // 2. Parallax zoom entry on inner content
+        .fromTo(content,
+          { yPercent: 12, scale: 1.05 },
+          { yPercent: 0, scale: 1, ease: 'power2.inOut', duration: 1 },
+          '<'
+        )
+        // 3. Scale down previous panel into 3D background with depth
+        .to(prevPanel,
+          { scale: 0.86, opacity: 0.2, ease: 'power2.inOut', duration: 1 },
+          '<'
+        );
+      });
+
+      /* Kinetic Capability Stream Acceleration in Section 03 */
+      if (transitionSectionRef.current) {
+        gsap.to('.overview-track-1', {
+          x: '-=320',
           ease: 'none',
           scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-          }
-        });
-      }
-
-      /* B. Story Narrative Sticky Title Breathing & Text Scrub */
-      if (storyRef.current) {
-        gsap.to('.story-sticky-title', {
-          color: '#89bc30',
-          scale: 1.04,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: storyRef.current,
-            start: 'top center',
-            end: 'bottom top',
-            scrub: true
-          }
-        });
-
-        const storyWords = gsap.utils.toArray('.story-scrub-word');
-        if (storyWords.length) {
-          gsap.fromTo(storyWords,
-            { opacity: 0.18, color: '#555555' },
-            {
-              opacity: 1,
-              color: '#ffffff',
-              stagger: 0.05,
-              ease: 'power1.out',
-              scrollTrigger: {
-                trigger: storyRef.current,
-                start: 'top 70%',
-                end: 'bottom 45%',
-                scrub: true
-              }
-            }
-          );
-        }
-      }
-
-      /* C. High-Contrast Manifesto Word-by-Word Text Scrub (Section 05) */
-      if (manifestoRef.current) {
-        const words = gsap.utils.toArray('.manifesto-word');
-        if (words.length) {
-          gsap.fromTo(words,
-            { opacity: 0.15, y: 10 },
-            {
-              opacity: 1,
-              y: 0,
-              stagger: 0.06,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: manifestoRef.current,
-                start: 'top 75%',
-                end: 'bottom 45%',
-                scrub: true
-              }
-            }
-          );
-        }
-      }
-
-      /* D. Dual Crossing Marquees Scroll-Trigger Acceleration */
-      if (marqueeSectionRef.current) {
-        gsap.to('.marquee-track-1', {
-          xPercent: -15,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: marqueeSectionRef.current,
+            trigger: transitionSectionRef.current,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: true
+            scrub: 1
           }
         });
 
-        gsap.to('.marquee-track-2', {
-          xPercent: 15,
+        gsap.to('.overview-track-2', {
+          x: '+=320',
           ease: 'none',
           scrollTrigger: {
-            trigger: marqueeSectionRef.current,
+            trigger: transitionSectionRef.current,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: true
+            scrub: 1
           }
         });
       }
 
-      /* E. Stacking Cards Scroll Physics & Telemetry */
-      const stackCards = gsap.utils.toArray<HTMLElement>('.offering-stack-card');
-      if (offeringsRef.current && stackCards.length) {
-        const stackTl = gsap.timeline({
-          scrollTrigger: {
-            id: 'offerings-stack-st',
-            trigger: offeringsRef.current,
-            start: 'top top',
-            end: '+=350%',
-            pin: true,
-            scrub: 1,
-            anticipatePin: 1,
-            onUpdate: (self) => {
-              const progress = self.progress;
-              const activeIdx = Math.min(
-                stackCards.length - 1,
-                Math.floor(progress * (stackCards.length - 1) + 0.45)
-              );
-              setActiveOfferingIdx(activeIdx);
-            }
-          }
-        });
-
-        /* Initial state: card 0 is in primary position; cards 1..5 start below off-screen */
-        gsap.set(stackCards[0], { y: 0, scale: 1, opacity: 1, filter: 'brightness(1)', transformOrigin: 'top center' });
-        for (let i = 1; i < stackCards.length; i++) {
-          gsap.set(stackCards[i], { yPercent: 120, opacity: 0, scale: 0.95, filter: 'brightness(1)', transformOrigin: 'top center' });
-        }
-
-        /* Sequential stacking choreography: as card i slides in, preceding cards step up into the stacked deck */
-        for (let i = 1; i < stackCards.length; i++) {
-          const currentCard = stackCards[i];
-          const prevCard = stackCards[i - 1];
-
-          /* Current card enters from bottom directly onto top of stack */
-          stackTl.to(currentCard, {
-            yPercent: 0,
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: 'none'
-          }, `+=0.04`)
-            /* Previous card steps up slightly and dims into stack */
-            .to(prevCard, {
-              y: -22,
-              scale: 0.96,
-              filter: 'brightness(0.65)',
-              duration: 1,
-              ease: 'none'
-            }, '<');
-
-          /* Progressively shift older cards further up into the layered stack */
-          if (i >= 2) {
-            stackTl.to(stackCards[i - 2], {
-              y: -40,
-              scale: 0.92,
-              filter: 'brightness(0.4)',
-              duration: 1,
-              ease: 'none'
-            }, '<');
-          }
-          if (i >= 3) {
-            stackTl.to(stackCards[i - 3], {
-              y: -56,
-              scale: 0.88,
-              filter: 'brightness(0.25)',
-              duration: 1,
-              ease: 'none'
-            }, '<');
-          }
-          if (i >= 4) {
-            stackTl.to(stackCards[i - 4], {
-              y: -70,
-              scale: 0.84,
-              filter: 'brightness(0.15)',
-              opacity: 0.2,
-              duration: 1,
-              ease: 'none'
-            }, '<');
-          }
-          if (i >= 5) {
-            stackTl.to(stackCards[i - 5], {
-              y: -82,
-              scale: 0.80,
-              opacity: 0,
-              duration: 1,
-              ease: 'none'
-            }, '<');
-          }
-        }
-      }
-
-      /* F. Working Model Rows Magnetic Slide-In */
+      /* Working Model Rows Magnetic Slide-In */
       const modelRows = gsap.utils.toArray<HTMLElement>('.working-model-row');
       modelRows.forEach((row) => {
         gsap.fromTo(row,
@@ -691,96 +483,50 @@ export default function ServicesPage() {
           }
         );
       });
-
-      /* G. Industries Tag Cloud Stagger Wave */
-      if (industriesRef.current) {
-        gsap.fromTo('.industry-tag',
-          { scale: 0.82, opacity: 0.2 },
-          {
-            scale: 1,
-            opacity: 1,
-            stagger: 0.04,
-            ease: 'back.out(1.5)',
-            scrollTrigger: {
-              trigger: industriesRef.current,
-              start: 'top 80%',
-              end: 'top 50%',
-              scrub: 0.6
-            }
-          }
-        );
-      }
-
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
-  /* Internal Card Spotlight tracking */
-  const handleCardTilt = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const spotlight = card.querySelector<HTMLElement>('.card-spotlight');
-    if (spotlight) {
-      spotlight.style.background = `radial-gradient(650px circle at ${x}px ${y}px, rgba(137, 188, 48, 0.28), rgba(226, 240, 202, 0.08) 40%, transparent 70%)`;
-      spotlight.style.opacity = '1';
-    }
-  };
-
-  const resetCardTilt = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const spotlight = card.querySelector<HTMLElement>('.card-spotlight');
-    if (spotlight) {
-      spotlight.style.opacity = '0';
-    }
-  };
-
-  const toggleCapability = (cap: string) => {
-    setSelectedCapabilities(prev =>
-      prev.includes(cap)
-        ? (prev.length > 1 ? prev.filter(c => c !== cap) : prev)
-        : [...prev, cap]
-    );
+  /* Smooth scroll jump directly to any of the 5 layers */
+  const scrollToLayer = (index: number) => {
+    const st = scrollTriggerInstanceRef.current;
+    if (!st) return;
+    const progress = index / (SERVICES_DOSSIER.length - 1);
+    const targetScroll = st.start + progress * (st.end - st.start);
+    window.scrollTo({
+      top: targetScroll,
+      behavior: 'smooth'
+    });
   };
 
   return (
     <>
-      {/* Dynamic Custom Cursor */}
       <CustomCursor />
-
-      {/* Global Navigation Header */}
       <Navigation />
 
       <main ref={containerRef} className="relative w-full bg-[#000000] text-primary-text selection:bg-accent-lime selection:text-black">
 
         {/* ========================================================= */}
-        {/* 01 — HERO LANDING: ICONIC CENTERED ORBITAL SERVICES       */}
+        {/* 01 — HERO LANDING (DARK OBSIDIAN '#090A0C')               */}
         {/* ========================================================= */}
-        <section ref={heroRef} className="relative h-screen w-full overflow-hidden bg-primary-bg select-none flex flex-col justify-between pt-24 pb-10 px-page">
+        <section ref={heroRef} className="relative min-h-[92vh] sm:min-h-screen w-full overflow-hidden bg-primary-bg select-none flex flex-col justify-between pt-24 pb-10 px-page">
 
-          {/* Interactive Minimalist Particle Canvas */}
+          {/* Interactive Particle Canvas */}
           <canvas 
             ref={heroCanvasRef} 
             className="absolute inset-0 pointer-events-none z-0 opacity-80"
           />
 
-          {/* The Faded Circle & Minimalist 3D Geometric Orbitals (Dead-Center) */}
+          {/* Minimalist 3D Geometric Orbitals */}
           <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none" style={{ perspective: '1000px' }}>
-            
-            {/* Outer Minimalist Orbital Ring */}
             <div 
               className="absolute w-[44vw] h-[44vw] rounded-full border border-accent-lime/10 pointer-events-none animate-[spin_40s_linear_infinite]"
               style={{ borderStyle: 'dashed' }}
             />
-
-            {/* Inner Minimalist Orbital Ring */}
             <div 
               className="absolute w-[32vw] h-[32vw] rounded-full border border-white/5 pointer-events-none animate-[spin_25s_linear_infinite_reverse]"
             />
-
-            {/* Soft breathing aura */}
             <div 
               className="absolute w-[36vw] h-[36vw] rounded-full opacity-20 animate-pulse pointer-events-none"
               style={{
@@ -788,23 +534,25 @@ export default function ServicesPage() {
                 animationDuration: '4s'
               }}
             />
-
-            {/* Central Faded Circle Glow */}
             <div 
               style={{ 
-                width: '22vw', 
-                height: '22vw', 
+                width: '20vw', 
+                height: '20vw', 
                 background: 'radial-gradient(circle, #e2f0ca 0%, transparent 70%)', 
                 borderRadius: '9999px',
               }} 
             />
           </div>
 
-
-          {/* Center Monumental Typography with Smooth 3D Mouse Tracking */}
+          {/* Hero Monumental Typography with 3D Mouse Tracking */}
           <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center w-full" style={{ perspective: '1200px' }}>
             <div ref={heroTextRef} className="flex flex-col items-center text-center" style={{ transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}>
               
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-accent-lime font-mono text-xs uppercase tracking-widest font-bold mb-6 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
+                <span>01 — 5 DIMENSIONAL ARCHITECTURES</span>
+              </div>
+
               <h1 
                 ref={heroMouseTrackerRef} 
                 className="font-display font-bold leading-[0.85] tracking-tighter uppercase text-center flex flex-col items-center pointer-events-auto cursor-default" 
@@ -818,33 +566,33 @@ export default function ServicesPage() {
                 </span>
               </h1>
 
-              <p className="mt-8 font-sans text-base sm:text-xl text-accent-light/80 font-light max-w-2xl mx-auto leading-relaxed">
-                Everything Generative AI, Deterministic Search & Spatial Architecture is our Playground.
+              <p className="mt-6 sm:mt-8 font-sans text-base sm:text-xl text-accent-light/80 font-light max-w-2xl mx-auto leading-relaxed">
+                5 integrated disciplines engineered to dominate generative AI search, performance media, and spatial web flagships.
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4 pointer-events-auto">
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4 pointer-events-auto">
                 <PremiumButton
                   onClick={() => {
-                    deckRef.current?.scrollIntoView({ behavior: 'smooth' });
+                    showcaseContainerRef.current?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="px-8 py-4"
                 >
-                  <span className="font-mono text-xs uppercase tracking-widest flex items-center gap-3">
-                    EXPLORE CAPABILITIES
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  <span className="font-mono text-xs uppercase tracking-widest flex items-center gap-2.5">
+                    ENTER 5 DIMENSIONS
+                    <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                   </span>
                 </PremiumButton>
 
                 <PremiumButton
                   variant="glass"
                   onClick={() => {
-                    workingModelsRef.current?.scrollIntoView({ behavior: 'smooth' });
+                    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="px-8 py-4"
                 >
                   <span className="font-mono text-xs uppercase tracking-widest">
-                    WORKING MODELS
+                    START A PROJECT
                   </span>
                 </PremiumButton>
               </div>
@@ -852,487 +600,310 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Bottom Coordinates & Scroll Prompt */}
+          {/* Bottom Coordinate Bar */}
           <div className="relative z-20 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-secondary-text">
             <div className="flex items-center gap-2">
-              <span className="text-accent-lime">01</span>
+              <span className="text-accent-lime">00</span>
               <span className="text-white/40">•</span>
-              <span>SYSTEM ARCHITECTURE & VECTOR RETRIEVAL</span>
+              <span>ALL SERVICES OVERVIEW & ARCHITECTURAL SPECTRUM</span>
             </div>
             <div className="text-white/40 flex items-center gap-2">
-              <span>SCROLL TO EXPLORE ARCHITECTURAL NARRATIVE</span>
-              <span>↓</span>
+              <span>SCROLL TO DIVE THROUGH LAYERS</span>
+              <MoveDown size={13} className="animate-bounce" />
             </div>
           </div>
 
         </section>
 
-        {/* ========================================================= */}
-        {/* 02 — WOLFX "ABOUT US" SPLIT STORY NARRATIVE                */}
-        {/* ========================================================= */}
-        <section ref={storyRef} className="relative min-h-screen py-28 px-page bg-[#090A0C] border-t border-white/10 text-white flex flex-col justify-between select-none">
-
-          {/* Subtle grid */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-15 z-0"
-            style={{
-              backgroundImage: 'radial-gradient(rgba(226, 240, 202, 0.3) 1px, transparent 1px)',
-              backgroundSize: '36px 36px'
-            }}
-          />
-
-          <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start my-auto">
-
-            {/* Left Column: WOLFx Sticky Story Title (story-1) with ScrollTrigger breathing */}
-            <div className="lg:col-span-5 lg:sticky lg:top-32">
-              <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-6 font-bold uppercase">
-                02 — THE ARCHITECTURAL THESIS
-              </h2>
-              <h2 className="story-sticky-title font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white leading-[0.9] tracking-tighter transition-colors will-change-transform">
-                In this rapidly moving generative space, we are...
-              </h2>
-            </div>
-
-            {/* Right Column: WOLFx 3 Story Blocks with Word Scrub */}
-            <div className="lg:col-span-7 flex flex-col gap-16 lg:gap-24">
-
-              {/* Story 1 */}
-              <div className="border-b border-white/10 pb-12 group">
-                <span className="font-mono text-xs text-accent-lime font-bold uppercase tracking-widest mb-3 block">
-                  01 — ARTISTRY & AUTHORITY
-                </span>
-                <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight mb-4 group-hover:text-accent-lime transition-colors">
-                  Merging Artistry with Algorithmic Authority.
-                </h3>
-                <p className="font-sans text-base sm:text-xl text-secondary-text leading-relaxed font-light">
-                  {"Harness the power of deterministic machine ontologies and avant-garde spatial engineering to elevate your enterprise above the noise. We construct architectures that command attention across both human eyes and generative AI answer feeds.".split(" ").map((word, wIdx) => (
-                    <span key={wIdx} className="story-scrub-word inline-block mr-1.5 transition-colors">
-                      {word}
-                    </span>
-                  ))}
-                </p>
-              </div>
-
-              {/* Story 2 */}
-              <div className="border-b border-white/10 pb-12 group">
-                <span className="font-mono text-xs text-accent-lime font-bold uppercase tracking-widest mb-3 block">
-                  02 — IMMERSIVE CRAFT
-                </span>
-                <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight mb-4 group-hover:text-accent-lime transition-colors">
-                  Crafting Unique Digital Journeys.
-                </h3>
-                <p className="font-sans text-base sm:text-xl text-secondary-text leading-relaxed font-light">
-                  {"Passionately creating unique, fluid 120 FPS digital ecosystems that captivate and convert. By blending artistic spatial depth with sub-50ms edge rendering, we transform high-intent visitors into committed enterprise advocates.".split(" ").map((word, wIdx) => (
-                    <span key={wIdx} className="story-scrub-word inline-block mr-1.5 transition-colors">
-                      {word}
-                    </span>
-                  ))}
-                </p>
-              </div>
-
-              {/* Story 3 */}
-              <div className="group">
-                <span className="font-mono text-xs text-accent-lime font-bold uppercase tracking-widest mb-3 block">
-                  03 — BOUNDARY DESTRUCTION
-                </span>
-                <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight mb-4 group-hover:text-accent-lime transition-colors">
-                  Pushing Beyond Conventional Search.
-                </h3>
-                <p className="font-sans text-base sm:text-xl text-secondary-text leading-relaxed font-light">
-                  {"We don't optimize for dying 10-blue-link algorithms. We engineer Answer-First semantic chunks and vector alignments that force Perplexity Sonar, OpenAI SearchGPT, Claude, and Google AI to cite your brand as the canonical industry truth.".split(" ").map((word, wIdx) => (
-                    <span key={wIdx} className="story-scrub-word inline-block mr-1.5 transition-colors">
-                      {word}
-                    </span>
-                  ))}
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-        {/* ========================================================= */}
-        {/* 03 — THE ICONIC WOLFX 3D ECHO TEXT TRANSITION             */}
-        {/* ========================================================= */}
-        <section className="relative w-full py-24 bg-[#000000] border-t border-b border-white/10 overflow-hidden select-none flex items-center justify-center">
-          <div className="w-full overflow-visible py-10 flex items-center justify-center">
-            <EchoText
-              text="SOLUTIONS"
-              echoes={20}
-              offset={42}
-              lag={0.2}
-              tint="#89bc30"
-              color="#FFFFFF"
-              direction="diagonal"
-              mode="both"
-              cursorRadius={500}
-              fontSize="clamp(5rem, 16vw, 13rem)"
-              fontWeight={900}
-              className="tracking-tighter font-display uppercase font-black select-none leading-none block text-center"
-            />
-          </div>
-        </section>
-
-        {/* ========================================================= */}
-        {/* 04 — WOLFX PINNED HORIZONTAL SOLUTIONS STREAM             */}
-        {/* ========================================================= */}
+        {/* ========================================================================= */}
+        {/* 02 — PINNED 5-LAYER DIMENSIONAL CLIP-PATH PARALLAX WIPES                  */}
+        {/* (EXACT HOMEPAGE CASE STUDIES DNA WITH ALTERNATING DARK & CREAM PALETTE)   */}
+        {/* ========================================================================= */}
         <section
-          ref={deckRef}
-          id="capabilities"
-          className="relative min-h-[780px] lg:min-h-[820px] h-screen w-full bg-[#07080a] flex flex-col justify-between overflow-hidden border-t border-white/10 select-none"
+          ref={showcaseContainerRef}
+          id="services-showcase"
+          className="relative h-screen w-full bg-[#090A0C] overflow-hidden select-none border-t border-white/10"
         >
-          {/* Ambient Subtle Grid */}
-          <div
-            className="absolute inset-0 opacity-15 pointer-events-none z-0"
-            style={{
-              backgroundImage: 'radial-gradient(rgba(226, 240, 202, 0.4) 1px, transparent 1px)',
-              backgroundSize: '44px 44px'
-            }}
-          />
+          {/* Floating Sticky Cybernetic HUD */}
+          <div className="absolute top-8 left-page right-page z-50 pointer-events-none flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-accent-lime font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 pointer-events-auto">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
+                <span>01 — ARCHITECTURAL ARCHIVES</span>
+              </div>
+            </div>
 
+            {/* Quick Step Indicator Pills */}
+            <div className="flex items-center gap-2 pointer-events-auto">
+              {SERVICES_DOSSIER.map((s, idx) => (
+                <button
+                  key={s.id}
+                  onClick={() => scrollToLayer(idx)}
+                  className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold uppercase transition-all cursor-pointer backdrop-blur-md ${
+                    activePanelIdx === idx
+                      ? 'bg-accent-lime text-black shadow-[0_0_15px_rgba(137,188,48,0.4)]'
+                      : 'bg-black/40 text-white/60 hover:text-white border border-white/15'
+                  }`}
+                >
+                  {s.num}
+                </button>
+              ))}
+            </div>
+          </div>
 
-          {/* Center Horizontal Track */}
-          <div className="relative z-10 w-full my-auto overflow-visible py-3 sm:py-5">
-            <div
-              ref={trackRef}
-              className="flex items-center gap-8 sm:gap-12 pl-page pr-[40vw] will-change-transform"
-            >
-              {solutionsData.map((service, index) => {
-                const isSelected = activeDeckCard === index;
+          {/* THE 5 FULL-SCREEN DIMENSIONAL PANELS */}
+          <div className="relative w-full h-full">
+            {SERVICES_DOSSIER.map((service, idx) => {
+              const IconComponent = service.icon;
+              const isCream = service.theme === 'cream';
 
-                return (
-                  <div
-                    key={service.num}
-                    onMouseMove={handleCardTilt}
-                    onMouseLeave={resetCardTilt}
-                    className="wolfx-solution-card relative w-[88vw] sm:w-[680px] lg:w-[760px] xl:w-[780px] h-[520px] sm:h-[530px] rounded-[44px] p-6 sm:p-8 lg:p-9 flex flex-col justify-between shrink-0 overflow-hidden border border-accent-lime/40 bg-gradient-to-b from-[#131622] via-[#0d0f17] to-[#08090d] shadow-[0_0_45px_rgba(137,188,48,0.18)] hover:border-accent-lime hover:shadow-[0_0_65px_rgba(137,188,48,0.28)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none"
-                  >
-                    {/* Dynamic Interactive Spotlight */}
-                    <div className="card-spotlight absolute inset-0 pointer-events-none rounded-[44px] opacity-0 transition-opacity duration-300 z-0" />
-
-                    {/* Ambient subtle color aura matching brand green on all cards */}
-                    <div
-                      className="absolute -top-24 -right-24 w-80 h-80 rounded-full blur-[110px] pointer-events-none opacity-20 bg-accent-lime"
+              return (
+                <div
+                  key={service.id}
+                  className={`service-depth-panel absolute inset-0 w-full h-full flex items-center justify-center p-page will-change-transform ${
+                    service.bgClass
+                  }`}
+                  style={{ zIndex: idx + 10 }}
+                >
+                  {/* Subtle Dot Pattern on Cream Panels */}
+                  {isCream && (
+                    <div 
+                      className="absolute inset-0 opacity-10 pointer-events-none z-0" 
+                      style={{ 
+                        backgroundImage: 'radial-gradient(#090A0C 1.5px, transparent 1.5px)', 
+                        backgroundSize: '32px 32px' 
+                      }}
                     />
+                  )}
 
-                    {/* Top Bar: Clean Architectural Header */}
-                    <div className="shrink-0 relative z-10 pb-4 border-b border-white/10 flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <span className="font-mono text-2xl sm:text-3xl font-black text-accent-lime">
-                          {service.num}
-                        </span>
-                        <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-widest text-white">
+                  {/* Subtle Radial Ambient on Dark Panels */}
+                  {!isCream && (
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent-lime/10 blur-[140px] rounded-full pointer-events-none" />
+                  )}
+
+                  {/* Panel Content Container with Parallax Zoom Entry */}
+                  <div className="panel-inner-content relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center will-change-transform pt-12">
+                    
+                    {/* Left Column: Monumental Split Typography & Specs */}
+                    <div className="lg:col-span-6 flex flex-col justify-center">
+                      
+                      {/* Top Category Tag & Spec ID */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="font-mono text-sm tracking-widest font-bold" style={{ color: service.accentColor }}>
                           {service.category}
                         </span>
+                        <span className={`px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider ${
+                          isCream
+                            ? 'bg-[#090A0C]/10 text-[#090A0C] border border-[#090A0C]/15'
+                            : 'bg-white/10 text-white/80 border border-white/15'
+                        }`}>
+                          {service.specId}
+                        </span>
                       </div>
 
-                      <div className="flex items-center gap-2.5 font-mono text-xs text-white/40 tracking-wider">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
-                        <span className="hidden sm:inline">ARCHITECTURAL SPEC 0{index + 1}</span>
-                        <span className="sm:hidden">SPEC 0{index + 1}</span>
-                      </div>
-                    </div>
-
-                    {/* Middle Stage: Main Heading + Subtitle + Narrative + Points with Tick Mark */}
-                    <div className="flex-1 relative z-10 my-auto py-3 sm:py-4 flex flex-col justify-center">
-
-                      {/* Main Heading */}
-                      <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-white leading-tight tracking-tight mb-1.5">
-                        {service.title}
+                      {/* Monumental Display Heading (Exact Case Studies Scale) */}
+                      <h3 className={`font-display text-[9vw] lg:text-[7vw] leading-[0.85] font-black uppercase tracking-tighter mb-6 ${
+                        service.textClass
+                      }`}>
+                        {service.name}
                       </h3>
 
-                      {/* Subtitle */}
-                      <div className="font-serif italic text-accent-light text-sm sm:text-base lg:text-lg mb-2 leading-snug">
-                        {service.subtitle}
-                      </div>
-
-                      {/* Narrative Description */}
-                      <p className="font-sans text-xs sm:text-sm text-secondary-text leading-relaxed max-w-2xl mb-4 sm:mb-5">
-                        {service.desc}
+                      {/* Punchy Concise Value Proposition */}
+                      <p className={`text-base sm:text-xl font-sans leading-relaxed mb-8 max-w-xl font-light ${
+                        isCream ? 'text-[#090A0C]/80' : 'text-white/70'
+                      }`}>
+                        {service.tagline}
                       </p>
 
-                      {/* Below Main Heading: Points with Tick Mark (clean, no cards around points) */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 sm:gap-y-3 pt-1">
-                        {service.points.map((pt, pIdx) => (
-                          <div
-                            key={pIdx}
-                            className="flex items-center gap-3 py-0.5 group cursor-default"
-                          >
-                            <div className="w-5 h-5 rounded-full bg-accent-lime/15 border border-accent-lime/40 flex items-center justify-center shrink-0 group-hover:bg-accent-lime group-hover:border-accent-lime transition-all shadow-[0_0_10px_rgba(137,188,48,0.2)]">
-                              <Check size={12} className="text-accent-lime group-hover:text-black transition-colors stroke-[2.5]" />
+                      {/* Deliverables Checklist Chips */}
+                      <div className="grid grid-cols-2 gap-2.5 mb-8 max-w-lg">
+                        {service.deliverables.map((item, dIdx) => (
+                          <div key={dIdx} className="flex items-center gap-2">
+                            <div className="w-4 h-4 rounded-full bg-accent-lime/20 border border-accent-lime/40 flex items-center justify-center shrink-0">
+                              <Check size={10} className="text-accent-lime stroke-[3]" />
                             </div>
-                            <span className="font-mono text-xs sm:text-sm text-white/90 font-medium group-hover:text-accent-lime transition-colors">
-                              {pt}
+                            <span className={`font-mono text-xs font-medium truncate ${
+                              isCream ? 'text-[#090A0C]/90' : 'text-white/85'
+                            }`}>
+                              {item}
                             </span>
                           </div>
                         ))}
                       </div>
-                    </div>
 
-                    {/* Bottom Section: Action Button & Stack */}
-                    <div className="shrink-0 relative z-10 pt-3 pb-0.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-                      <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-white/40">
-                        <span>STACK:</span>
-                        {service.tech.map((techItem, tIdx) => (
-                          <span
-                            key={tIdx}
-                            className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-accent-light font-mono text-xs hover:border-accent-lime/40 transition-colors"
-                          >
-                            {techItem}
-                          </span>
-                        ))}
-                      </div>
-
-                      <PremiumButton
-                        onClick={() => {
-                          workingModelsRef.current?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="px-6 py-3 shrink-0"
-                      >
-                        <span className="font-mono text-xs uppercase tracking-wider flex items-center gap-2">
-                          CONFIGURE SPECIFICATION
-                          <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </span>
-                      </PremiumButton>
-                    </div>
-
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Bottom Status Coordinate */}
-          <div className="relative z-20 px-page pb-5 pt-3 flex items-center justify-between font-mono text-[11px] text-secondary-text border-t border-white/10 bg-[#07080a]/90 backdrop-blur-md">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
-              <span>ARCHITECTURE {activeDeckCard + 1} OF {solutionsData.length}</span>
-            </div>
-
-            <div className="hidden sm:flex items-center gap-2 text-white/40">
-              <span>SCROLL OR USE STEPS TO STREAM DISCIPLINES</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="text-white/40">FOCUS:</span>
-              <span className="text-accent-light">{solutionsData[activeDeckCard]?.title}</span>
-            </div>
-          </div>
-
-        </section>
-
-        {/* ========================================================= */}
-        {/* 05 — HIGH-CONTRAST PALE CREAM MANIFESTO (HOME PAGE PALETTE) */}
-        {/* ========================================================= */}
-        <section
-          ref={manifestoRef}
-          className="relative py-36 px-page bg-accent-light text-dark-text border-y border-dark-text/15 select-none overflow-hidden"
-        >
-          {/* Subtle dot pattern overlay on cream matching Homepage Section 2 */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-10 z-0"
-            style={{
-              backgroundImage: 'radial-gradient(#090A0C 1.5px, transparent 1.5px)',
-              backgroundSize: '32px 32px'
-            }}
-          />
-
-          <div className="max-w-6xl mx-auto relative z-10">
-
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#090A0C] text-accent-light font-mono text-xs uppercase tracking-widest font-bold mb-10 shadow-md">
-              <Sparkles size={13} className="text-accent-lime" />
-              <span>05 — THE ARCHITECTURAL PHILOSOPHY</span>
-            </div>
-
-            {/* Word-by-Word ScrollTrigger Illumination Scrub */}
-            <div className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-[#090A0C] leading-[1.08] tracking-tight">
-              {manifestoWords.map((word, idx) => {
-                const isHighlight = word.includes("partners") || word.includes("dominance") || word.includes("reality") || word.includes("ecosystems");
-                return (
-                  <span
-                    key={idx}
-                    className={`manifesto-word inline-block mr-2.5 sm:mr-3.5 transition-colors will-change-transform ${isHighlight ? 'text-[#090A0C] underline decoration-accent-lime decoration-4 underline-offset-8' : ''
-                      }`}
-                  >
-                    {word}
-                  </span>
-                );
-              })}
-            </div>
-
-            <div className="mt-12 flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-[#090A0C]/15 font-mono text-xs text-[#090A0C]/70">
-              <span className="font-bold tracking-wider">VEREEN DIGITAL • HIGH-PERFORMANCE STANDARDS</span>
-              <span>DOMINATING CONVERSATIONAL DISCOVERY ACROSS LLMS</span>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ========================================================= */}
-        {/* 06 — WOLFX DUAL CROSSING DIAGONAL MARQUEES (SCROLL-PULSED) */}
-        {/* ========================================================= */}
-        <section ref={marqueeSectionRef} className="relative py-28 bg-[#07080a] border-t border-b border-white/10 overflow-hidden select-none flex flex-col justify-center gap-8 min-h-[360px]">
-
-          {/* Marquee 1 (Rotated +3deg) */}
-          <div className="marquee-track-1 w-[120vw] -ml-[10vw] rotate-3 bg-[#0c0e14] border-y border-white/15 py-4 shadow-xl will-change-transform">
-            <div className="flex whitespace-nowrap animate-marquee">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="flex items-center gap-8 font-display text-xl sm:text-3xl font-bold uppercase tracking-wider text-white shrink-0 mr-8">
-                  <span className="text-accent-lime">GEO RETRIEVAL</span>
-                  <span>•</span>
-                  <span>KNOWLEDGE GRAPH DISAMBIGUATION</span>
-                  <span>•</span>
-                  <span className="text-accent-light">120 FPS WEBGL SPATIAL</span>
-                  <span>•</span>
-                  <span>DETERMINISTIC RAG</span>
-                  <span>•</span>
-                  <span className="text-accent-lime">NEXT.JS 16 EDGE</span>
-                  <span>•</span>
-                  <span>W3C SCHEMA ONTOLOGIES</span>
-                  <span>•</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Marquee 2 (Rotated -3deg, reverse) */}
-          <div className="marquee-track-2 w-[120vw] -ml-[10vw] -rotate-3 bg-accent-lime text-black border-y border-accent-lime py-4 shadow-2xl will-change-transform">
-            <div className="flex whitespace-nowrap animate-marquee-reverse">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="flex items-center gap-8 font-display text-xl sm:text-3xl font-black uppercase tracking-wider shrink-0 mr-8">
-                  <span>PERPLEXITY PRO</span>
-                  <span>•</span>
-                  <span>OPENAI SEARCHGPT</span>
-                  <span>•</span>
-                  <span>GOOGLE AI OVERVIEWS</span>
-                  <span>•</span>
-                  <span>CLAUDE 3.7</span>
-                  <span>•</span>
-                  <span>SUB-50MS SLA</span>
-                  <span>•</span>
-                  <span>CLOSED ENTERPRISE ARR</span>
-                  <span>•</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </section>
-
-        {/* ========================================================= */}
-        {/* 07 — WOLFX "OUR SERVICE OFFERINGS" NUMBERED SHOWCASE      */}
-        {/* ========================================================= */}
-        <section ref={offeringsRef} id="offerings" className="relative min-h-screen py-24 sm:py-32 px-page bg-[#090A0C] border-b border-white/10 select-none flex flex-col justify-center">
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-            {/* Left Column: Kept identical as requested ("same to same as it is") */}
-            <div className="lg:col-span-5">
-              <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-6 font-bold uppercase">
-                07 — ARCHITECTURAL PORTFOLIO
-              </h2>
-
-              <h2 className="font-display text-4xl sm:text-6xl font-black uppercase text-white leading-tight mb-6">
-                Our Service <br />
-                <span className="text-accent-lime">Offerings</span>
-              </h2>
-
-              <p className="font-sans text-base sm:text-lg text-secondary-text leading-relaxed font-light">
-                At Vereen Digital, we offer a comprehensive range of architectural services designed to drive commanding enterprise presence across human and artificial intelligence channels.
-              </p>
-            </div>
-
-            {/* Right Column: Stacking Cards Scroll Deck (Stacked One Above One) */}
-            <div className="lg:col-span-7 relative w-full pt-16 sm:pt-20">
-              <div className="relative w-full h-[500px] sm:h-[540px]">
-                {serviceOfferings.map((offering, idx) => (
-                  <div
-                    key={offering.num}
-                    id={`offering-stack-${idx}`}
-                    style={{
-                      zIndex: idx + 10,
-                      transformOrigin: 'top center',
-                      opacity: idx === 0 ? 1 : 0
-                    }}
-                    className={`offering-stack-card absolute inset-0 w-full h-full p-7 sm:p-9 rounded-[32px] bg-[#0c0e14] border transition-colors duration-300 will-change-transform flex flex-col justify-between shadow-[0_-20px_50px_rgba(0,0,0,0.95),0_25px_60px_rgba(0,0,0,0.7)] ${activeOfferingIdx === idx
-                      ? 'border-accent-lime/60 shadow-[0_0_50px_rgba(137,188,48,0.2)]'
-                      : 'border-white/10'
-                      }`}
-                  >
-                    {/* Top Subtle Edge Sheen */}
-                    <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-accent-lime/50 to-transparent pointer-events-none" />
-
-                    {/* Card Header */}
-                    <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-white/10">
-                      <div className="flex items-center gap-3">
-                        <span className="font-mono text-3xl sm:text-4xl font-black text-accent-lime">
-                          {offering.num} •
-                        </span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse" />
-                      </div>
-                      <span className="font-mono text-xs text-accent-light uppercase tracking-wider font-semibold">
-                        {offering.subtitle}
-                      </span>
-                    </div>
-
-                    {/* Card Title */}
-                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold uppercase text-white leading-tight mb-2.5">
-                      {offering.title}
-                    </h3>
-
-                    {/* Card Description */}
-                    <p className="font-sans text-sm sm:text-base text-secondary-text leading-relaxed mb-3.5 font-light">
-                      {offering.desc}
-                    </p>
-
-                    {/* Deliverables Badges */}
-                    <div className="flex flex-wrap items-center gap-2 mb-3.5">
-                      {offering.deliverables.map((deliv, dIdx) => (
-                        <span
-                          key={dIdx}
-                          className="px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 font-mono text-xs text-white/90 flex items-center gap-2"
+                      {/* Action strip */}
+                      <div className="flex items-center gap-4">
+                        <a
+                          href={service.href}
+                          className={`inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-mono text-xs font-black uppercase tracking-wider transition-all shadow-md group cursor-pointer ${
+                            isCream
+                              ? 'bg-[#090A0C] text-accent-light hover:bg-accent-lime hover:text-black shadow-[0_4px_20px_rgba(9,10,12,0.15)]'
+                              : 'bg-accent-lime text-black hover:bg-white shadow-[0_0_25px_rgba(137,188,48,0.35)]'
+                          }`}
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent-lime shrink-0 shadow-[0_0_6px_#89bc30]" />
-                          {deliv}
+                          <span>ENTER {service.name.toUpperCase()} PORTAL</span>
+                          <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </a>
+
+                        <span className={`font-mono text-xs font-bold ${
+                          isCream ? 'text-[#3f5d13]' : 'text-accent-lime'
+                        }`}>
+                          {service.metric}
                         </span>
-                      ))}
+                      </div>
+
                     </div>
 
-                    {/* Bottom Action Strip */}
-                    <div className="pt-3.5 border-t border-white/10 flex items-center justify-between">
-                      <span className="font-mono text-xs text-white/40">
-                        CORRIDOR SPECIFICATION 0{idx + 1}
-                      </span>
-                      <button
-                        onClick={() => {
-                          setSelectedService(offering.title);
-                          inquiryRef.current?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="font-mono text-xs text-accent-lime font-bold uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
-                      >
-                        <span>SELECT CAPABILITY</span>
-                        <ArrowUpRight size={13} />
-                      </button>
+                    {/* Right Column: Editorial Architectural Window (NO FAKE TELEMETRY) */}
+                    <div className="lg:col-span-6 flex flex-col justify-center">
+                      <div className={`relative rounded-[36px] overflow-hidden border shadow-2xl transition-all duration-500 group select-none ${
+                        isCream
+                          ? 'border-[#090A0C]/15 shadow-[0_20px_50px_rgba(9,10,12,0.12)] bg-white'
+                          : 'border-accent-lime/30 shadow-[0_0_50px_rgba(137,188,48,0.2)] bg-[#121520]'
+                      }`}>
+                        
+                        {/* High-Resolution Cinematic Frame */}
+                        <div className="relative w-full h-[340px] sm:h-[400px] lg:h-[450px] overflow-hidden">
+                          <img
+                            src={service.image}
+                            alt={service.name}
+                            className="w-full h-full object-cover will-change-transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                          />
+
+                          {/* Cinematic Depth Gradient Overlay */}
+                          <div className={`absolute inset-0 pointer-events-none ${
+                            isCream
+                              ? 'bg-gradient-to-t from-black/85 via-black/25 to-transparent'
+                              : 'bg-gradient-to-t from-[#090A0C] via-black/40 to-black/20'
+                          }`} />
+
+                          {/* Top Floating Badge Strip */}
+                          <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-10 pointer-events-none">
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold uppercase tracking-wider">
+                              <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse shadow-[0_0_8px_#89bc30]" />
+                              <span>{service.badge}</span>
+                            </div>
+
+                            <div className="w-11 h-11 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-accent-lime shadow-md">
+                              <IconComponent size={22} strokeWidth={1.8} />
+                            </div>
+                          </div>
+
+                          {/* Bottom Floating Stat Callout */}
+                          <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between pointer-events-none">
+                            <div>
+                              <span className="font-display text-4xl sm:text-6xl font-black text-white leading-none block drop-shadow-md tracking-tight">
+                                {service.statNumber}
+                              </span>
+                              <span className="font-mono text-xs sm:text-sm font-semibold text-accent-lime uppercase tracking-wider mt-1 block drop-shadow">
+                                {service.statLabel}
+                              </span>
+                            </div>
+
+                            <span className="px-4 py-2 rounded-full bg-accent-lime text-black font-mono text-xs font-black uppercase tracking-wider shadow-lg">
+                              ENTERPRISE SLA
+                            </span>
+                          </div>
+
+                        </div>
+
+                      </div>
                     </div>
 
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
+              );
+            })}
+          </div>
 
+        </section>
+
+        {/* ========================================================= */}
+        {/* 03 — DUAL KINETIC CAPABILITY STREAM (DARK OBSIDIAN)       */}
+        {/* ========================================================= */}
+        <section 
+          ref={transitionSectionRef}
+          className="relative w-full py-16 sm:py-20 bg-[#090A0C] border-t border-b border-white/10 overflow-hidden select-none flex flex-col justify-center gap-5 sm:gap-6"
+        >
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[220px] bg-accent-lime/10 blur-[130px] rounded-full pointer-events-none" />
+
+          {/* Eyebrow */}
+          <div className="max-w-7xl mx-auto w-full px-page flex items-center justify-between font-mono text-xs text-white/40 relative z-10">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse" />
+              <span className="text-accent-lime font-bold uppercase tracking-wider">02 — ARCHITECTURAL SPECTRUM</span>
+            </div>
+            <span className="hidden sm:inline text-white/30 tracking-wider">CONTINUOUS 120 FPS STREAM</span>
+          </div>
+
+          {/* Track 1: Solid High-Contrast Typography moving Left */}
+          <div className="relative w-full overflow-hidden py-1">
+            <div className="overview-track-1 flex whitespace-nowrap will-change-transform animate-marquee hover:[animation-play-state:paused]">
+              {[...Array(3)].map((_, loopIdx) => (
+                <div key={loopIdx} className="flex items-center shrink-0">
+                  {SERVICES_DOSSIER.map((s, sIdx) => (
+                    <div key={sIdx} className="flex items-center gap-6 sm:gap-10 mr-6 sm:mr-10">
+                      <span className={`font-display text-4xl sm:text-6xl font-black uppercase tracking-tight transition-colors ${
+                        sIdx === 0 ? 'text-white' : sIdx % 2 === 1 ? 'text-accent-lime' : 'text-accent-light'
+                      }`}>
+                        {s.name}
+                      </span>
+                      <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-accent-lime shadow-[0_0_10px_#89bc30]" />
+                      <span className="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white/70">
+                        {s.category}
+                      </span>
+                      <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40" />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Track 2: Outlined Typography moving Right with Matching Solid Fill */}
+          <div className="relative w-full overflow-hidden py-1">
+            <div className="overview-track-2 flex whitespace-nowrap will-change-transform animate-marquee-reverse hover:[animation-play-state:paused]">
+              {[...Array(3)].map((_, loopIdx) => (
+                <div key={loopIdx} className="flex items-center shrink-0">
+                  {SERVICES_DOSSIER.map((s, sIdx) => {
+                    const strokeColor = sIdx % 2 === 0 ? '#FFFFFF' : '#89bc30';
+                    return (
+                      <div key={sIdx} className="flex items-center gap-6 sm:gap-10 mr-6 sm:mr-10">
+                        <span 
+                          className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight transition-all duration-300 hover:brightness-110"
+                          style={{
+                            color: strokeColor,
+                            WebkitTextFillColor: strokeColor,
+                            WebkitTextStroke: `1.5px ${strokeColor}`
+                          }}
+                        >
+                          {s.metric}
+                        </span>
+                        <span 
+                          className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full"
+                          style={{
+                            backgroundColor: strokeColor,
+                            boxShadow: strokeColor === '#89bc30' ? '0 0 10px #89bc30' : 'none'
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* ========================================================= */}
-        {/* 08 — WOLFX WORKING MODELS (HIGH-CONTRAST PALE CREAM PALETTE) */}
+        {/* 04 — WORKING MODELS (SIGNATURE LUXURY CREAM '#e2f0ca')     */}
         {/* ========================================================= */}
         <section
           ref={workingModelsRef}
           id="working-models"
-          className="relative py-32 px-page bg-accent-light text-dark-text border-y border-dark-text/15 select-none overflow-hidden"
+          className="relative py-28 sm:py-32 px-page bg-accent-light text-dark-text border-y border-dark-text/15 select-none overflow-hidden"
         >
-          {/* Subtle dot pattern overlay on cream matching Homepage Section 2 */}
+          {/* Subtle Dot Pattern Overlay on Cream */}
           <div
             className="absolute inset-0 pointer-events-none opacity-10 z-0"
             style={{
@@ -1342,53 +913,49 @@ export default function ServicesPage() {
           />
 
           <div className="max-w-7xl mx-auto relative z-10">
-
             {/* Section Header */}
-            <div className="mb-16 pb-8 border-b border-[#090A0C]/15 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="mb-14 pb-8 border-b border-[#090A0C]/15 flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#090A0C] text-accent-light font-mono text-xs uppercase tracking-widest font-bold mb-4 shadow-sm">
                   <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse" />
-                  <span>08 — ENGAGEMENT ARCHITECTURE</span>
+                  <span>03 — ENGAGEMENT ARCHITECTURE</span>
                 </div>
-                <h2 className="font-display text-4xl sm:text-7xl font-black uppercase text-[#090A0C] leading-[0.9] tracking-tighter">
+                <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-[#090A0C] leading-[0.9] tracking-tighter">
                   Working Models, <br />
                   <span className="text-[#3f5d13] underline decoration-accent-lime decoration-4 underline-offset-8">Tailored to You</span>
                 </h2>
               </div>
               <p className="font-sans text-base sm:text-lg text-[#090A0C]/80 max-w-md font-normal leading-relaxed">
-                Choose the exact engagement framework that matches your organization's deployment velocity, technical team, and enterprise goals.
+                Choose the exact engagement framework that matches your organization&apos;s deployment velocity, technical team, and enterprise goals.
               </p>
             </div>
 
-            {/* 5 Working Model High-Contrast Cards with Magnetic Slide-In Animation */}
+            {/* 4 Working Model High-Contrast Cards with Magnetic Slide-In Animation */}
             <div className="flex flex-col gap-4">
-              {workingModels.map((model, mIdx) => (
+              {WORKING_MODELS.map((model, mIdx) => (
                 <div
                   key={mIdx}
-                  className="working-model-row py-8 sm:py-10 px-6 sm:px-10 rounded-2xl bg-white/75 hover:bg-white border border-[#090A0C]/10 hover:border-[#090A0C]/25 shadow-[0_4px_20px_rgba(9,10,12,0.03)] hover:shadow-[0_15px_35px_rgba(9,10,12,0.08)] transition-all duration-300 cursor-pointer will-change-transform grid grid-cols-1 lg:grid-cols-12 gap-6 items-center group"
+                  className="working-model-row py-7 sm:py-8 px-6 sm:px-10 rounded-2xl bg-white/80 hover:bg-white border border-[#090A0C]/10 hover:border-[#090A0C]/25 shadow-[0_4px_20px_rgba(9,10,12,0.03)] hover:shadow-[0_15px_35px_rgba(9,10,12,0.08)] transition-all duration-300 cursor-pointer will-change-transform grid grid-cols-1 lg:grid-cols-12 gap-6 items-center group"
                   onClick={() => {
-                    setSelectedModel(model.title);
-                    inquiryRef.current?.scrollIntoView({ behavior: 'smooth' });
+                    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  {/* Left: Model Name & Type */}
                   <div className="lg:col-span-4">
-                    <div className="font-mono text-xs text-[#3f5d13] font-bold uppercase tracking-wider mb-1.5 flex items-center gap-2">
+                    <div className="font-mono text-xs text-[#3f5d13] font-bold uppercase tracking-wider mb-1 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
                       <span>0{mIdx + 1} — {model.type}</span>
                     </div>
-                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-[#090A0C] group-hover:text-black transition-colors">
+                    <h3 className="font-display text-2xl sm:text-3xl font-black uppercase text-[#090A0C] group-hover:text-black transition-colors">
                       {model.title}
                     </h3>
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#090A0C]/5 border border-[#090A0C]/10 font-mono text-[11px] text-[#090A0C]/70 font-semibold mt-2.5">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#090A0C]/5 border border-[#090A0C]/10 font-mono text-[11px] text-[#090A0C]/70 font-semibold mt-2">
                       <span>TIMELINE:</span>
                       <span className="font-bold text-[#090A0C]">{model.timeline}</span>
                     </div>
                   </div>
 
-                  {/* Middle: Explanation */}
                   <div className="lg:col-span-6">
-                    <p className="font-sans text-sm sm:text-base text-[#090A0C]/80 leading-relaxed mb-3 font-normal">
+                    <p className="font-sans text-sm sm:text-base text-[#090A0C]/80 leading-relaxed mb-2 font-normal">
                       {model.desc}
                     </p>
                     <div className="font-mono text-xs font-bold text-[#2d430c] flex items-center gap-2">
@@ -1399,10 +966,9 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  {/* Right: Circular Arrow Action Button */}
                   <div className="lg:col-span-2 flex justify-start lg:justify-end">
-                    <div className="w-14 h-14 rounded-full bg-[#090A0C] text-accent-light group-hover:bg-accent-lime group-hover:text-black flex items-center justify-center transition-all duration-300 shadow-md group-hover:shadow-[0_0_25px_rgba(137,188,48,0.5)]">
-                      <ArrowUpRight size={22} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <div className="w-12 h-12 rounded-full bg-[#090A0C] text-accent-light group-hover:bg-accent-lime group-hover:text-black flex items-center justify-center transition-all duration-300 shadow-md group-hover:shadow-[0_0_20px_rgba(137,188,48,0.4)]">
+                      <ArrowUpRight size={20} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </div>
                 </div>
@@ -1413,60 +979,21 @@ export default function ServicesPage() {
         </section>
 
         {/* ========================================================= */}
-        {/* 09 — WOLFX INDUSTRIES WE SERVE                            */}
-        {/* ========================================================= */}
-        <section ref={industriesRef} className="relative py-28 px-page bg-[#08090c] border-b border-white/10 select-none">
-          <div className="max-w-7xl mx-auto">
-
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-4 font-bold uppercase">
-                09 — GLOBAL DOMAINS
-              </h2>
-              <h2 className="font-display text-4xl sm:text-6xl font-bold uppercase text-white mb-4">
-                Industries We Empower
-              </h2>
-              <p className="font-sans text-secondary-text text-base sm:text-lg font-light">
-                Our architectural frameworks power market leaders across complex, high-stakes global sectors.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-3 max-w-5xl mx-auto">
-              {industries.map((ind, iIdx) => (
-                <div
-                  key={iIdx}
-                  className="industry-tag px-6 py-4 rounded-2xl bg-[#0c0e14] border border-white/10 hover:border-accent-lime/60 hover:bg-accent-lime/10 transition-all duration-300 text-white font-mono text-sm uppercase tracking-wider flex items-center gap-3 cursor-default will-change-transform"
-                >
-                  <span className="w-2 h-2 rounded-full bg-accent-lime" />
-                  <span>{ind}</span>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
-        {/* ========================================================= */}
-        {/* 10 — FREQUENTLY ASKED QUESTIONS (SAME AS HOME PAGE)       */}
-        {/* ========================================================= */}
-        <FAQSection />
-
-        {/* ========================================================= */}
-        {/* 11 — INITIATE / INQUIRY FORM (SAME AS HOME PAGE)          */}
+        {/* 05 — INITIATE / PROJECT INQUIRY FORM                      */}
         {/* ========================================================= */}
         <section
-          ref={inquiryRef}
+          ref={contactRef}
           id="contact"
           className="py-32 md:py-48 bg-[#050608] relative overflow-hidden flex flex-col items-center justify-center min-h-screen"
         >
           <div id="inquiry-form" className="absolute -top-32" />
 
-          {/* Background Ambient Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-accent-lime/5 blur-[150px] rounded-full pointer-events-none" />
 
           <div className="px-page w-full max-w-[90rem] mx-auto relative z-10">
             <div className="mb-20">
               <h2 className="font-mono text-sm tracking-widest text-accent-lime mb-4 font-bold uppercase text-center">
-                10 — Initiate
+                04 — Initiate
               </h2>
             </div>
 
@@ -1523,14 +1050,12 @@ export default function ServicesPage() {
                       onChange={(e) => setSelectedService(e.target.value)}
                       className="appearance-none bg-transparent border-b-2 border-accent-light/20 text-accent-lime outline-none w-[280px] md:w-[500px] lg:w-[620px] text-center focus:border-accent-lime focus:bg-accent-light/5 transition-all pb-2 cursor-pointer relative z-10"
                     >
-                      <option value="Generative Engine Optimization (GEO)" className="bg-[#090A0C] text-lg">Generative Engine Optimization (GEO)</option>
-                      <option value="Knowledge Graph Disambiguation (KGD)" className="bg-[#090A0C] text-lg">Knowledge Graph Disambiguation (KGD)</option>
-                      <option value="Kinetic & WebGL Digital Ecosystems" className="bg-[#090A0C] text-lg">Kinetic & WebGL Spatial Design</option>
-                      <option value="Autonomous AI Operational Systems" className="bg-[#090A0C] text-lg">Autonomous AI Systems</option>
-                      <option value="Global Cloud & Sub-50ms Edge Infrastructure" className="bg-[#090A0C] text-lg">Cloud & Edge Infrastructure</option>
-                      <option value="Conversational Revenue Attribution" className="bg-[#090A0C] text-lg">Conversational ARR Attribution</option>
-                      <option value="Product Engineering" className="bg-[#090A0C] text-lg">Product Engineering</option>
-                      <option value="UI/UX Design" className="bg-[#090A0C] text-lg">UI/UX Design</option>
+                      <option value="All Services Overview" className="bg-[#090A0C] text-lg">All Services Overview</option>
+                      <option value="AI SEO (GEO & Vector Retrieval)" className="bg-[#090A0C] text-lg">AI SEO (GEO & Vector Retrieval)</option>
+                      <option value="Google Ads (High-Intent Acquisition)" className="bg-[#090A0C] text-lg">Google Ads (High-Intent Acquisition)</option>
+                      <option value="Meta Ads (Paid Social Scaling)" className="bg-[#090A0C] text-lg">Meta Ads (Paid Social Scaling)</option>
+                      <option value="ChatGPT Ads (Conversational Ingestion)" className="bg-[#090A0C] text-lg">ChatGPT Ads (Conversational Ingestion)</option>
+                      <option value="Web Development (120 FPS Spatial Web)" className="bg-[#090A0C] text-lg">Web Development (120 FPS Spatial Web)</option>
                     </select>
                   </div>.
                   <br className="hidden lg:block" />We have a budget of roughly <br className="md:hidden" />
@@ -1576,9 +1101,9 @@ export default function ServicesPage() {
             )}
           </div>
         </section>
+
       </main>
 
-      {/* Global Reveal Footer */}
       <Footer />
     </>
   );
